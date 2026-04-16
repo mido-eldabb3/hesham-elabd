@@ -1,0 +1,1001 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>شاليهات هشام العبد | بورتو مطروح</title>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800;900&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0a1628;
+    --deep-blue: #0d2240;
+    --ocean: #1a4a7a;
+    --sky: #2e7bc4;
+    --turq: #00b4d8;
+    --sand: #e8d5b0;
+    --gold: #c9952a;
+    --gold-light: #f0c060;
+    --cream: #fdf6e9;
+    --white: #ffffff;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Tajawal', sans-serif;
+    background: var(--navy);
+    color: var(--white);
+    overflow-x: hidden;
+  }
+
+  /* ===== HERO ===== */
+  .hero {
+    min-height: 100vh;
+    background: linear-gradient(160deg, var(--navy) 0%, var(--deep-blue) 40%, var(--ocean) 100%);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 40px 20px;
+    overflow: hidden;
+  }
+
+  /* Animated waves */
+  .wave-bg {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 300px;
+    opacity: 0.12;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -50%; left: -50%;
+    width: 200%; height: 200%;
+    background: radial-gradient(ellipse at 60% 40%, rgba(0,180,216,0.15) 0%, transparent 60%),
+                radial-gradient(ellipse at 20% 80%, rgba(201,149,42,0.1) 0%, transparent 50%);
+    animation: shimmer 8s ease-in-out infinite alternate;
+  }
+
+  @keyframes shimmer {
+    0% { transform: translate(0,0) rotate(0deg); }
+    100% { transform: translate(2%, 1%) rotate(1deg); }
+  }
+
+  /* Decorative circles */
+  .circle {
+    position: absolute;
+    border-radius: 50%;
+    border: 1px solid rgba(0,180,216,0.2);
+    animation: pulse-ring 6s ease-in-out infinite;
+  }
+  .circle-1 { width: 600px; height: 600px; top: -200px; left: -200px; animation-delay: 0s; }
+  .circle-2 { width: 400px; height: 400px; bottom: -100px; right: -100px; animation-delay: 2s; }
+  .circle-3 { width: 250px; height: 250px; top: 50%; right: 10%; animation-delay: 4s; }
+
+  @keyframes pulse-ring {
+    0%, 100% { transform: scale(1); opacity: 0.3; }
+    50% { transform: scale(1.05); opacity: 0.6; }
+  }
+
+  .hero-badge {
+    background: linear-gradient(135deg, rgba(201,149,42,0.2), rgba(240,192,96,0.3));
+    border: 1px solid rgba(201,149,42,0.5);
+    color: var(--gold-light);
+    padding: 8px 24px;
+    border-radius: 50px;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    margin-bottom: 30px;
+    position: relative;
+    animation: fadeDown 0.8s ease both;
+  }
+
+  .hero-logo {
+    font-family: 'Amiri', serif;
+    font-size: clamp(42px, 8vw, 90px);
+    font-weight: 700;
+    line-height: 1.1;
+    color: var(--white);
+    position: relative;
+    animation: fadeDown 0.9s ease 0.1s both;
+    text-shadow: 0 0 60px rgba(0,180,216,0.3);
+  }
+
+  .hero-logo span {
+    display: block;
+    background: linear-gradient(90deg, var(--gold), var(--gold-light), var(--gold));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .hero-sub {
+    font-size: clamp(16px, 3vw, 22px);
+    color: rgba(255,255,255,0.65);
+    margin-top: 16px;
+    font-weight: 300;
+    letter-spacing: 1px;
+    animation: fadeDown 1s ease 0.2s both;
+  }
+
+  .hero-divider {
+    width: 80px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    margin: 30px auto;
+    animation: fadeDown 1s ease 0.3s both;
+  }
+
+  .hero-desc {
+    max-width: 600px;
+    font-size: 17px;
+    line-height: 1.9;
+    color: rgba(255,255,255,0.75);
+    animation: fadeDown 1s ease 0.4s both;
+  }
+
+  .hero-cta {
+    display: flex;
+    gap: 16px;
+    margin-top: 40px;
+    flex-wrap: wrap;
+    justify-content: center;
+    animation: fadeDown 1s ease 0.5s both;
+  }
+
+  .btn-primary {
+    background: linear-gradient(135deg, var(--gold), var(--gold-light));
+    color: var(--navy);
+    padding: 16px 40px;
+    border-radius: 50px;
+    font-size: 17px;
+    font-weight: 700;
+    text-decoration: none;
+    font-family: 'Tajawal', sans-serif;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 30px rgba(201,149,42,0.4);
+    cursor: pointer;
+    border: none;
+  }
+
+  .btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 40px rgba(201,149,42,0.6);
+  }
+
+  .btn-secondary {
+    background: transparent;
+    color: var(--white);
+    padding: 16px 40px;
+    border-radius: 50px;
+    font-size: 17px;
+    font-weight: 500;
+    text-decoration: none;
+    font-family: 'Tajawal', sans-serif;
+    border: 1px solid rgba(255,255,255,0.3);
+    transition: all 0.3s ease;
+    cursor: pointer;
+  }
+
+  .btn-secondary:hover {
+    background: rgba(255,255,255,0.1);
+    border-color: rgba(255,255,255,0.6);
+    transform: translateY(-3px);
+  }
+
+  /* Scroll indicator */
+  .scroll-down {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    color: rgba(255,255,255,0.4);
+    font-size: 12px;
+    animation: bounce 2s infinite;
+  }
+
+  .scroll-down::after {
+    content: '';
+    width: 1px;
+    height: 40px;
+    background: linear-gradient(to bottom, rgba(255,255,255,0.4), transparent);
+  }
+
+  @keyframes bounce {
+    0%, 100% { transform: translateX(-50%) translateY(0); }
+    50% { transform: translateX(-50%) translateY(8px); }
+  }
+
+  /* ===== STATS ===== */
+  .stats {
+    background: linear-gradient(135deg, var(--ocean), var(--sky));
+    padding: 50px 40px;
+    display: flex;
+    justify-content: center;
+    gap: 60px;
+    flex-wrap: wrap;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .stats::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(
+      45deg,
+      transparent,
+      transparent 30px,
+      rgba(255,255,255,0.03) 30px,
+      rgba(255,255,255,0.03) 60px
+    );
+  }
+
+  .stat {
+    text-align: center;
+    position: relative;
+  }
+
+  .stat-num {
+    font-family: 'Amiri', serif;
+    font-size: 52px;
+    font-weight: 700;
+    color: var(--gold-light);
+    line-height: 1;
+  }
+
+  .stat-label {
+    font-size: 14px;
+    color: rgba(255,255,255,0.8);
+    margin-top: 8px;
+    font-weight: 300;
+    letter-spacing: 1px;
+  }
+
+  /* ===== SECTION BASE ===== */
+  section {
+    padding: 100px 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .section-tag {
+    color: var(--turq);
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+
+  .section-title {
+    font-family: 'Amiri', serif;
+    font-size: clamp(32px, 5vw, 52px);
+    font-weight: 700;
+    color: var(--white);
+    line-height: 1.2;
+    margin-bottom: 20px;
+  }
+
+  .section-title span {
+    color: var(--gold);
+  }
+
+  .section-body {
+    font-size: 17px;
+    line-height: 2;
+    color: rgba(255,255,255,0.65);
+    max-width: 600px;
+  }
+
+  /* ===== FEATURES ===== */
+  .features-section {
+    background: var(--deep-blue);
+  }
+
+  .features-wrap {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 100px 40px;
+  }
+
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+    margin-top: 60px;
+  }
+
+  .feature-card {
+    background: linear-gradient(135deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02));
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 20px;
+    padding: 36px 30px;
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .feature-card::before {
+    content: '';
+    position: absolute;
+    top: 0; right: 0;
+    width: 100px; height: 100px;
+    background: radial-gradient(circle, rgba(0,180,216,0.15), transparent 70%);
+    transition: all 0.4s ease;
+  }
+
+  .feature-card:hover {
+    transform: translateY(-6px);
+    border-color: rgba(0,180,216,0.3);
+    box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+  }
+
+  .feature-card:hover::before {
+    width: 200px; height: 200px;
+  }
+
+  .feature-icon {
+    font-size: 36px;
+    margin-bottom: 20px;
+    display: block;
+  }
+
+  .feature-title {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 12px;
+  }
+
+  .feature-desc {
+    font-size: 15px;
+    color: rgba(255,255,255,0.55);
+    line-height: 1.8;
+  }
+
+  /* ===== PRICING ===== */
+  .pricing-section {
+    background: var(--navy);
+  }
+
+  .pricing-wrap {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 100px 40px;
+  }
+
+  .pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+    margin-top: 60px;
+  }
+
+  .price-card {
+    border-radius: 24px;
+    padding: 40px 32px;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+  }
+
+  .price-card:hover { transform: translateY(-6px); }
+
+  .price-card.basic {
+    background: linear-gradient(135deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02));
+    border: 1px solid rgba(255,255,255,0.1);
+  }
+
+  .price-card.featured {
+    background: linear-gradient(135deg, var(--ocean), var(--deep-blue));
+    border: 1px solid rgba(0,180,216,0.4);
+    box-shadow: 0 0 60px rgba(0,180,216,0.15);
+  }
+
+  .price-card.premium {
+    background: linear-gradient(135deg, rgba(201,149,42,0.15), rgba(201,149,42,0.05));
+    border: 1px solid rgba(201,149,42,0.3);
+  }
+
+  .featured-badge {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background: linear-gradient(135deg, var(--gold), var(--gold-light));
+    color: var(--navy);
+    font-size: 12px;
+    font-weight: 700;
+    padding: 5px 16px;
+    border-radius: 50px;
+  }
+
+  .price-type {
+    font-size: 14px;
+    color: rgba(255,255,255,0.5);
+    letter-spacing: 2px;
+    margin-bottom: 16px;
+    margin-top: 10px;
+  }
+
+  .price-name {
+    font-family: 'Amiri', serif;
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 24px;
+  }
+
+  .price-amount {
+    display: flex;
+    align-items: baseline;
+    gap: 6px;
+    margin-bottom: 8px;
+  }
+
+  .price-num {
+    font-family: 'Amiri', serif;
+    font-size: 52px;
+    font-weight: 700;
+    color: var(--gold-light);
+    line-height: 1;
+  }
+
+  .price-currency { font-size: 18px; color: rgba(255,255,255,0.6); }
+  .price-period { font-size: 14px; color: rgba(255,255,255,0.4); margin-bottom: 28px; }
+
+  .price-features {
+    list-style: none;
+    margin-bottom: 32px;
+  }
+
+  .price-features li {
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    font-size: 15px;
+    color: rgba(255,255,255,0.7);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .price-features li::before {
+    content: '✓';
+    color: var(--turq);
+    font-weight: 700;
+    font-size: 14px;
+    flex-shrink: 0;
+  }
+
+  /* ===== LOCATION ===== */
+  .location-section {
+    background: linear-gradient(180deg, var(--deep-blue) 0%, var(--navy) 100%);
+  }
+
+  .location-wrap {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 100px 40px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+
+  @media (max-width: 768px) {
+    .location-wrap { grid-template-columns: 1fr; gap: 40px; }
+  }
+
+  .map-placeholder {
+    background: linear-gradient(135deg, var(--ocean), var(--deep-blue));
+    border-radius: 24px;
+    height: 350px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(0,180,216,0.2);
+    position: relative;
+    overflow: hidden;
+    gap: 16px;
+  }
+
+  .map-placeholder::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 50% 50%, rgba(0,180,216,0.2), transparent 70%);
+  }
+
+  .map-icon { font-size: 60px; position: relative; }
+  .map-text { font-size: 18px; color: rgba(255,255,255,0.7); position: relative; }
+  .map-coords { font-size: 13px; color: rgba(255,255,255,0.4); position: relative; font-family: monospace; }
+
+  .location-points {
+    list-style: none;
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .location-points li {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    font-size: 16px;
+    color: rgba(255,255,255,0.7);
+  }
+
+  .loc-dot {
+    width: 10px; height: 10px;
+    border-radius: 50%;
+    background: var(--turq);
+    flex-shrink: 0;
+    box-shadow: 0 0 10px rgba(0,180,216,0.6);
+  }
+
+  /* ===== CONTACT ===== */
+  .contact-section {
+    background: linear-gradient(135deg, var(--ocean) 0%, var(--navy) 100%);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .contact-section::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 50% 0%, rgba(0,180,216,0.2), transparent 60%);
+  }
+
+  .contact-wrap {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 100px 40px;
+    position: relative;
+  }
+
+  .contact-card {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 28px;
+    padding: 50px 40px;
+    margin-top: 50px;
+    backdrop-filter: blur(10px);
+  }
+
+  .contact-methods {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-top: 30px;
+  }
+
+  .contact-method {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 14px;
+    padding: 18px 24px;
+    text-decoration: none;
+    color: var(--white);
+    font-size: 17px;
+    transition: all 0.3s ease;
+    font-family: 'Tajawal', sans-serif;
+  }
+
+  .contact-method:hover {
+    background: rgba(0,180,216,0.15);
+    border-color: rgba(0,180,216,0.4);
+    transform: translateX(-4px);
+  }
+
+  .contact-method-icon {
+    font-size: 26px;
+    flex-shrink: 0;
+  }
+
+  .contact-method-info { text-align: right; }
+  .contact-method-label { font-size: 12px; color: rgba(255,255,255,0.4); margin-bottom: 4px; }
+  .contact-method-value { font-weight: 600; }
+
+  .whatsapp-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    background: linear-gradient(135deg, #25d366, #128c7e);
+    color: white;
+    padding: 18px 40px;
+    border-radius: 50px;
+    font-size: 18px;
+    font-weight: 700;
+    text-decoration: none;
+    font-family: 'Tajawal', sans-serif;
+    margin-top: 30px;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 30px rgba(37,211,102,0.3);
+  }
+
+  .whatsapp-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 40px rgba(37,211,102,0.5);
+  }
+
+  /* ===== FOOTER ===== */
+  footer {
+    background: #060e1a;
+    text-align: center;
+    padding: 40px 20px;
+    color: rgba(255,255,255,0.3);
+    font-size: 14px;
+    border-top: 1px solid rgba(255,255,255,0.06);
+  }
+
+  footer span { color: var(--gold); }
+
+  /* ===== ANIMATIONS ===== */
+  @keyframes fadeDown {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.7s ease;
+  }
+
+  .fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ===== NAV ===== */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    padding: 20px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(10,22,40,0.85);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    transition: all 0.3s ease;
+  }
+
+  .nav-brand {
+    font-family: 'Amiri', serif;
+    font-size: 20px;
+    color: var(--gold);
+    font-weight: 700;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 32px;
+    list-style: none;
+  }
+
+  .nav-links a {
+    color: rgba(255,255,255,0.6);
+    text-decoration: none;
+    font-size: 15px;
+    transition: color 0.3s;
+  }
+
+  .nav-links a:hover { color: var(--white); }
+
+  @media (max-width: 600px) {
+    nav { padding: 16px 20px; }
+    .nav-links { display: none; }
+    section { padding: 70px 20px; }
+    .features-wrap, .pricing-wrap, .contact-wrap { padding: 70px 20px; }
+    .stats { gap: 30px; padding: 40px 20px; }
+    .contact-card { padding: 30px 20px; }
+  }
+
+  /* Wave SVG */
+  .wave-divider {
+    display: block;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+  }
+
+  .wave-divider svg {
+    display: block;
+    width: 100%;
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-brand">شاليهات هشام العبد</div>
+  <ul class="nav-links">
+    <li><a href="#features">المميزات</a></li>
+    <li><a href="#pricing">الأسعار</a></li>
+    <li><a href="#location">الموقع</a></li>
+    <li><a href="#contact">تواصل معنا</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="circle circle-1"></div>
+  <div class="circle circle-2"></div>
+  <div class="circle circle-3"></div>
+
+  <div class="hero-badge">✦ بورتو مطروح | الساحل الشمالي ✦</div>
+
+  <h1 class="hero-logo">
+    شاليهات
+    <span>هشام العبد</span>
+  </h1>
+
+  <p class="hero-sub">إقامة فاخرة على شاطئ المتوسط</p>
+
+  <div class="hero-divider"></div>
+
+  <p class="hero-desc">
+    استمتع بأجمل إجازة صيفية في قلب بورتو مطروح، بين زرقة البحر ونسمات الساحل.
+    شاليهات مجهزة بالكامل وخدمات متكاملة لتجربة لا تُنسى.
+  </p>
+
+  <div class="hero-cta">
+    <a href="#contact" class="btn-primary">احجز الآن</a>
+    <a href="#pricing" class="btn-secondary">الأسعار والتفاصيل</a>
+  </div>
+
+  <div class="scroll-down">اكتشف أكثر</div>
+</div>
+
+<!-- STATS -->
+<div class="stats">
+  <div class="stat fade-in">
+    <div class="stat-num">١٥+</div>
+    <div class="stat-label">حمام سباحة</div>
+  </div>
+  <div class="stat fade-in">
+    <div class="stat-num">٥</div>
+    <div class="stat-label">دقائق من وسط مطروح</div>
+  </div>
+  <div class="stat fade-in">
+    <div class="stat-num">٤</div>
+    <div class="stat-label">أفراد كحد أقصى</div>
+  </div>
+  <div class="stat fade-in">
+    <div class="stat-num">١٠٠%</div>
+    <div class="stat-label">تكييف كامل</div>
+  </div>
+</div>
+
+<!-- FEATURES -->
+<div class="features-section" id="features">
+  <div class="features-wrap">
+    <div class="fade-in">
+      <div class="section-tag">✦ مميزاتنا</div>
+      <h2 class="section-title">كل اللي تحتاجه في<br><span>إجازة مثالية</span></h2>
+      <p class="section-body">شاليهاتنا مجهزة بأعلى معايير الراحة والرفاهية لتضمن لك وعيلتك أجمل وقت على شاطئ مطروح.</p>
+    </div>
+
+    <div class="features-grid">
+      <div class="feature-card fade-in">
+        <span class="feature-icon">🏖️</span>
+        <div class="feature-title">شاطئ خاص مميز</div>
+        <div class="feature-desc">شاطئ نظيف ومميز على البحر المتوسط مباشرة مع باصات نقل مجانية كل ساعة</div>
+      </div>
+      <div class="feature-card fade-in">
+        <span class="feature-icon">🏊</span>
+        <div class="feature-title">أكثر من ١٥ حمام سباحة</div>
+        <div class="feature-desc">حمامات سباحة موزعة بذكاء بين الشاليهات مع إطلالة على المياه الزرقاء</div>
+      </div>
+      <div class="feature-card fade-in">
+        <span class="feature-icon">❄️</span>
+        <div class="feature-title">تكييف بالكامل</div>
+        <div class="feature-desc">شاليهات مكيفة بالكامل لضمان راحتك في أشد أيام الصيف حرارة</div>
+      </div>
+      <div class="feature-card fade-in">
+        <span class="feature-icon">🍳</span>
+        <div class="feature-title">مطبخ مجهز بالكامل</div>
+        <div class="feature-desc">تلاجة، بوتجاز، ميكرويف، غسالة أوتوماتيك، وكل الأدوات اللازمة</div>
+      </div>
+      <div class="feature-card fade-in">
+        <span class="feature-icon">📺</span>
+        <div class="feature-title">ترفيه متكامل</div>
+        <div class="feature-desc">شاشة تلفزيون مسطحة وألعاب مائية متنوعة تناسب جميع الأعمار</div>
+      </div>
+      <div class="feature-card fade-in">
+        <span class="feature-icon">🛡️</span>
+        <div class="feature-title">أمان وخصوصية</div>
+        <div class="feature-desc">منتجع مسوّر مع حراسة على مدار الساعة وخدمات متكاملة لراحة بالك</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- WAVE -->
+<div class="wave-divider" style="background:#0d2240;">
+  <svg viewBox="0 0 1440 60" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+    <path d="M0,30 C360,60 1080,0 1440,30 L1440,60 L0,60 Z" fill="#0a1628"/>
+  </svg>
+</div>
+
+<!-- PRICING -->
+<div class="pricing-section" id="pricing">
+  <div class="pricing-wrap">
+    <div class="fade-in" style="text-align:center;">
+      <div class="section-tag">✦ الأسعار</div>
+      <h2 class="section-title">أسعار موسم صيف <span>٢٠٢٥</span></h2>
+      <p class="section-body" style="margin: 0 auto;">أسعار تنافسية لأجمل شاليهات في بورتو مطروح، الحجز المسبق متاح الآن</p>
+    </div>
+
+    <div class="pricing-grid">
+      <div class="price-card basic fade-in">
+        <div class="price-type">الوحدة الصغيرة</div>
+        <div class="price-name">ستوديو مميز</div>
+        <div class="price-amount">
+          <span class="price-num">٢٠٠٠</span>
+          <span class="price-currency">جنيه</span>
+        </div>
+        <div class="price-period">في الليلة الواحدة</div>
+        <ul class="price-features">
+          <li>غرفة نوم واحدة</li>
+          <li>ريسبشن مريح</li>
+          <li>حمام وأمريكي كيتشن</li>
+          <li>يسع حتى ٤ أفراد</li>
+          <li>دخول حمامات السباحة</li>
+        </ul>
+        <a href="#contact" class="btn-secondary" style="display:block; text-align:center;">احجز الآن</a>
+      </div>
+
+      <div class="price-card featured fade-in">
+        <div class="featured-badge">الأكثر طلباً</div>
+        <div class="price-type">الوحدة المتوسطة</div>
+        <div class="price-name">شاليه عائلي</div>
+        <div class="price-amount">
+          <span class="price-num">٢٨٠٠</span>
+          <span class="price-currency">جنيه</span>
+        </div>
+        <div class="price-period">في الليلة الواحدة</div>
+        <ul class="price-features">
+          <li>غرفة نوم واسعة</li>
+          <li>ريسبشن كبير جداً</li>
+          <li>مطبخ مجهز بالكامل</li>
+          <li>تكييف كامل</li>
+          <li>شاطئ خاص + حمامات سباحة</li>
+          <li>باص نقل مجاني للشاطئ</li>
+        </ul>
+        <a href="#contact" class="btn-primary" style="display:block; text-align:center;">احجز الآن</a>
+      </div>
+
+      <div class="price-card premium fade-in">
+        <div class="price-type">الوحدة الكبيرة</div>
+        <div class="price-name">شاليه فاخر</div>
+        <div class="price-amount">
+          <span class="price-num">٣٥٠٠</span>
+          <span class="price-currency">جنيه</span>
+        </div>
+        <div class="price-period">في الليلة الواحدة</div>
+        <ul class="price-features">
+          <li>غرفتين نوم</li>
+          <li>مساحة معيشة واسعة</li>
+          <li>مطبخ فاخر متكامل</li>
+          <li>حديقة أو تراس خاص</li>
+          <li>كل مميزات الشاليه العائلي</li>
+          <li>فرش فندقي فاخر</li>
+        </ul>
+        <a href="#contact" class="btn-primary" style="display:block; text-align:center; background: linear-gradient(135deg,var(--gold),var(--gold-light));">احجز الآن</a>
+      </div>
+    </div>
+
+    <div class="fade-in" style="text-align:center; margin-top:40px; color:rgba(255,255,255,0.4); font-size:14px; line-height:2;">
+      * الأسعار للموسم الصيفي ٢٠٢٥ | الحجز المسبق ضروري في ذروة الموسم<br>
+      * سياسة إلغاء صارمة — يُنصح بالتواصل قبل الحجز للاستفسار
+    </div>
+  </div>
+</div>
+
+<!-- LOCATION -->
+<div class="location-section" id="location">
+  <div class="location-wrap">
+    <div class="map-placeholder fade-in">
+      <div class="map-icon">📍</div>
+      <div class="map-text">بورتو مطروح</div>
+      <div class="map-coords">31.3°N — 27.2°E</div>
+    </div>
+    <div class="fade-in">
+      <div class="section-tag">✦ الموقع</div>
+      <h2 class="section-title">في قلب<br><span>بورتو مطروح</span></h2>
+      <p class="section-body">موقع استراتيجي مميز يجمع بين الهدوء والقرب من كل الخدمات</p>
+      <ul class="location-points">
+        <li><span class="loc-dot"></span> ٥ دقائق من وسط مدينة مطروح</li>
+        <li><span class="loc-dot"></span> على مدخل شاطئ الغرام الشهير</li>
+        <li><span class="loc-dot"></span> قريب من مطار مرسى مطروح</li>
+        <li><span class="loc-dot"></span> جميع الخدمات على مقربة من المنتجع</li>
+        <li><span class="loc-dot"></span> باصات نقل مجانية للشاطئ كل ساعة</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- CONTACT -->
+<div class="contact-section" id="contact">
+  <div class="contact-wrap">
+    <div class="fade-in">
+      <div class="section-tag">✦ تواصل معنا</div>
+      <h2 class="section-title">احجز <span>شاليهك</span> دلوقتي</h2>
+      <p class="section-body" style="margin: 0 auto;">تواصل معنا مباشرة للاستفسار وتأكيد الحجز، الموسم بيبدأ من أواخر مايو</p>
+    </div>
+
+    <div class="contact-card fade-in">
+      <div class="contact-methods">
+        <a href="tel:+20XXXXXXXXXX" class="contact-method">
+          <span class="contact-method-icon">📞</span>
+          <div class="contact-method-info">
+            <div class="contact-method-label">اتصل بنا مباشرة</div>
+            <div class="contact-method-value">هشام العبد — بورتو مطروح</div>
+          </div>
+        </a>
+        <a href="https://www.facebook.com/HeshamElAbdPortoMatrouh/" target="_blank" class="contact-method">
+          <span class="contact-method-icon">📘</span>
+          <div class="contact-method-info">
+            <div class="contact-method-label">صفحتنا على فيسبوك</div>
+            <div class="contact-method-value">شاليهات هشام العبد بورتو مطروح</div>
+          </div>
+        </a>
+      </div>
+      <div style="text-align:center;">
+        <a href="https://wa.me/20XXXXXXXXXX" class="whatsapp-btn">
+          <span>💬</span> تواصل عبر واتساب
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <p>© ٢٠٢٥ <span>شاليهات هشام العبد</span> | بورتو مطروح، مرسى مطروح، مصر</p>
+  <p style="margin-top:8px; font-size:12px;">جميع الحقوق محفوظة</p>
+</footer>
+
+<script>
+  // Scroll fade-in
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('visible'), i * 100);
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+  // Smooth scroll
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      e.preventDefault();
+      const target = document.querySelector(a.getAttribute('href'));
+      if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  });
+</script>
+</body>
+</html>
