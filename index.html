@@ -1483,6 +1483,31 @@ linear-gradient(160deg,#06101d 0%, #0a1628 35%, #0d2240 70%, #1a4a7a 100%)}
     });
   });
 
+  // Counter animation for premium metrics
+  function animateCounterPremium(el, target, duration, suffix) {
+    let start = 0;
+    const step = target / (duration / 16);
+    const timer = setInterval(() => {
+      start += step;
+      if (start >= target) { start = target; clearInterval(timer); }
+      el.textContent = (Number.isInteger(target) ? Math.floor(start) : start.toFixed(1)) + suffix;
+    }, 16);
+  }
+
+  const premiumCounterObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const el = entry.target;
+        const raw = parseFloat(el.dataset.target);
+        const suffix = el.dataset.suffix || '';
+        animateCounterPremium(el, raw, 1800, suffix);
+        premiumCounterObserver.unobserve(el);
+      }
+    });
+  }, { threshold: 0.5 });
+
+  document.querySelectorAll('#premium-hero [data-target]').forEach(el => premiumCounterObserver.observe(el));
+
   // Re-run observer on premium fade-in elements (added after initial observer ran)
   const premiumObserver = new IntersectionObserver((entries) => {
     entries.forEach((entry, i) => {
