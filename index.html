@@ -1341,31 +1341,33 @@ linear-gradient(160deg,#06101d 0%, #0a1628 35%, #0d2240 70%, #1a4a7a 100%)}
 .premium-footer{padding:34px 20px;border-top:1px solid rgba(255,255,255,.08);background:#07101d;color:rgba(255,255,255,.55);text-align:center}
 @media (max-width: 980px){.premium-metrics,.grid-pro,.gallery-grid{grid-template-columns:1fr 1fr}.gallery-grid .big{grid-row:auto;min-height:260px}}
 @media (max-width: 640px){#removed-topbar .wrap{flex-direction:column;align-items:flex-start}.premium-metrics,.grid-pro,.gallery-grid{grid-template-columns:1fr}.premium-title{font-size:clamp(34px,11vw,54px)}#premium-hero{margin-top:96px}.premium-strip{justify-content:flex-start}#premium-fab,#weather-pill{bottom:14px}}
+#premium-hero .premium-kicker.fade-in { transition-delay: 0.05s; }
+#premium-hero .premium-title.fade-in  { transition-delay: 0.15s; }
+#premium-hero .premium-sub.fade-in    { transition-delay: 0.25s; }
+#premium-hero .premium-actions.fade-in{ transition-delay: 0.35s; }
+#premium-hero .premium-strip.fade-in  { transition-delay: 0.45s; }
+#premium-hero .premium-metrics.fade-in{ transition-delay: 0.55s; }
+.grid-pro .card-pro.fade-in:nth-child(1){ transition-delay: 0.05s; }
+.grid-pro .card-pro.fade-in:nth-child(2){ transition-delay: 0.15s; }
+.grid-pro .card-pro.fade-in:nth-child(3){ transition-delay: 0.25s; }
+.grid-pro .card-pro.fade-in:nth-child(4){ transition-delay: 0.35s; }
+.premium-qa .qa-item.fade-in:nth-child(1){ transition-delay: 0.05s; }
+.premium-qa .qa-item.fade-in:nth-child(2){ transition-delay: 0.15s; }
+.premium-qa .qa-item.fade-in:nth-child(3){ transition-delay: 0.25s; }
 </style>
-
-<!-- removed premium topbar -->
-  <div class="wrap">
-    <div class="badge"></div>
-    <div class="contact">
-      <a href="tel:+201015753775">0100 123 4567</a>
-      
-      
-    </div>
-  </div>
-</div>
 
 <section id="premium-hero">
   <div class="premium-shell">
-    <div class="premium-kicker">PORTO MATROUH · BEACH LUXURY</div>
-    <h1 class="premium-title">إقامة <span>Premium</span> على شاطئ المتوسط</h1>
-    <p class="premium-sub"></p>
-    <div class="premium-actions">
+    <div class="premium-kicker fade-in">PORTO MATROUH · BEACH LUXURY</div>
+    <h1 class="premium-title fade-in">إقامة <span>Premium</span> على شاطئ المتوسط</h1>
+    <p class="premium-sub fade-in"></p>
+    <div class="premium-actions fade-in">
       <a class="pbtn primary" href="https://wa.me/201015753775" target="_blank" rel="noopener">احجز واتساب الآن</a>
       <a class="pbtn secondary" href="#removed-gallery"></a>
       <a class="pbtn secondary" href="#premium-faq">الأسئلة الشائعة</a>
     </div>
-    <div class="premium-strip"><b>الموسم:</b> أواخر مايو · <b>الخدمات:</b> عائلات / أزواج / مجموعات · <b>التواصل:</b> مباشر وسريع</div>
-    <div class="premium-metrics">
+    <div class="premium-strip fade-in"><b>الموسم:</b> أواخر مايو · <b>الخدمات:</b> عائلات / أزواج / مجموعات · <b>التواصل:</b> مباشر وسريع</div>
+    <div class="premium-metrics fade-in">
       <div class="metric"><div class="num">24/7</div><div class="lbl">دعم وحجز</div></div>
       <div class="metric"><div class="num">5★</div><div class="lbl">إحساس فاخر</div></div>
       <div class="metric"><div class="num">100%</div><div class="lbl">Responsive</div></div>
@@ -1376,22 +1378,22 @@ linear-gradient(160deg,#06101d 0%, #0a1628 35%, #0d2240 70%, #1a4a7a 100%)}
 
 <section class="section-pro" style="background:#0d2240">
   <div class="section-inner">
-    <div class="section-head">
+    <div class="section-head fade-in">
       <div class="section-tag">Pricing & Trust</div>
       <h2 class="section-h2">أسعار، خدمات، وطمأنة</h2>
-      <p class="section-p">القسم ده بيجمع أهم عناصر التحويل: السعر، المميزات، وطريقة التواصل بشكل مختصر وواضح.</p>
+      <p class="section-p">الشاليهات المميزه الوحيده ف القريه بلا منافس</p>
     </div>
     <div class="grid-pro">
-      <div class="card-pro"><div class="card-title">شاليه 2 غرف</div><div class="card-text">مناسب لعائلة صغيرة، مطبخ مجهز، إطلالة مريحة، وسعر تنافسي.</div></div>
-      <div class="card-pro"><div class="card-title">شاليه 3 غرف فاخر</div><div class="card-text">مناسب للعائلات الكبيرة، مساحة أوسع، وراحة أعلى وتجربة أكثر خصوصية.</div></div>
-      <div class="card-pro"><div class="card-title">شاليه 4 غرف VIP</div><div class="card-text">الشاليه الوحيد في القرية بتشطيب فاخر على أعلى مستوى، بتصميم راقٍ يليق بالعائلات الكبيرة والذوق الرفيع. مساحة أوسع، خصوصية أعلى، وإحساس إقامة مميز من أول لحظة. مناسب للضيوف اللي بيدوروا على مستوى استثنائي من الراحة، مع تفاصيل داخلية متقنة، خامات ممتازة، وتشطيبات تعكس فخامة حقيقية في كل ركن.</div></div>
-      <div class="card-pro"><div class="card-title">تواصل وحجز</div><div class="card-text">واتساب مباشر، اتصال هاتفي، ورسالة واضحة عن الموسم وموعد البداية.</div></div>
+      <div class="card-pro fade-in"><div class="card-title">شاليه 2 غرف</div><div class="card-text">مناسب لعائلة صغيرة، مطبخ مجهز، إطلالة مريحة، وسعر تنافسي.</div></div>
+      <div class="card-pro fade-in"><div class="card-title">شاليه 3 غرف فاخر</div><div class="card-text">مناسب للعائلات الكبيرة، مساحة أوسع، وراحة أعلى وتجربة أكثر خصوصية.</div></div>
+      <div class="card-pro fade-in"><div class="card-title">شاليه 4 غرف VIP</div><div class="card-text">الشاليه الوحيد في القرية بتشطيب فاخر على أعلى مستوى، بتصميم راقٍ يليق بالعائلات الكبيرة والذوق الرفيع. مساحة أوسع، خصوصية أعلى، وإحساس إقامة مميز من أول لحظة. مناسب للضيوف اللي بيدوروا على مستوى استثنائي من الراحة، مع تفاصيل داخلية متقنة، خامات ممتازة، وتشطيبات تعكس فخامة حقيقية في كل ركن.</div></div>
+      <div class="card-pro fade-in"><div class="card-title">تواصل وحجز</div><div class="card-text">واتساب مباشر، اتصال هاتفي، ورسالة واضحة عن الموسم وموعد البداية.</div></div>
     </div>
 
           <div id="premium-faq" class="premium-qa">
-      <div class="qa-item"><div class="qa-q"><span>متى يبدأ الموسم؟</span><span>+</span></div><div class="qa-a">الموسم يبدأ أواخر مايو، والحجز المسبق متاح قبلها مع أولوية في الاختيار.</div></div>
-      <div class="qa-item"><div class="qa-q"><span>إيه اللي يميز الشاليه؟</span><span>+</span></div><div class="qa-a">تصميم مريح، خدمات مناسبة للعائلات، وموقع يخدم الراحة والهدوء والقرب من الخدمات.</div></div>
-      <div class="qa-item"><div class="qa-q"><span>أحجز إزاي؟</span><span>+</span></div><div class="qa-a">اضغط زر واتساب الثابت أو زر الحجز في أعلى الصفحة، وهيتم التواصل فورًا.</div></div>
+      <div class="qa-item fade-in"><div class="qa-q"><span>متى يبدأ الموسم؟</span><span>+</span></div><div class="qa-a">الموسم يبدأ أواخر مايو، والحجز المسبق متاح قبلها مع أولوية في الاختيار.</div></div>
+      <div class="qa-item fade-in"><div class="qa-q"><span>إيه اللي يميز الشاليه؟</span><span>+</span></div><div class="qa-a">تصميم مريح، خدمات مناسبة للعائلات، وموقع يخدم الراحة والهدوء والقرب من الخدمات.</div></div>
+      <div class="qa-item fade-in"><div class="qa-q"><span>أحجز إزاي؟</span><span>+</span></div><div class="qa-a">اضغط زر واتساب الثابت أو زر الحجز في أعلى الصفحة، وهيتم التواصل فورًا.</div></div>
     </div>
   </div>
 </section>
@@ -1399,7 +1401,7 @@ linear-gradient(160deg,#06101d 0%, #0a1628 35%, #0d2240 70%, #1a4a7a 100%)}
 <a id="premium-fab" href="https://wa.me/201015753775?text=مرحبا،%20عايز%20احجز%20شاليه%20في%20بورتو%20مطروح" target="_blank" rel="noopener" aria-label="واتساب">✆</a>
 <div id="weather-pill">جاري تحميل الطقس...</div>
 
-<footer class="premium-footer">© 2026 Porto Matrouh. Premium beachfront experience.</footer>
+<footer class="premium-footer fade-in">© 2026 Porto Matrouh. Premium beachfront experience.</footer>
 
 <script>
 (function(){
@@ -1419,6 +1421,20 @@ linear-gradient(160deg,#06101d 0%, #0a1628 35%, #0d2240 70%, #1a4a7a 100%)}
       const a = item.querySelector('.qa-a');
       a.style.display = a.style.display === 'block' ? 'none' : 'block';
     });
+  });
+
+  // Re-run observer on premium fade-in elements (added after initial observer ran)
+  const premiumObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('visible'), i * 100);
+        premiumObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('#premium-hero .fade-in, .section-pro .fade-in, .premium-footer.fade-in').forEach(el => {
+    premiumObserver.observe(el);
   });
 })();
 </script>
