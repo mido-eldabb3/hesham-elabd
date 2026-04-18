@@ -663,6 +663,25 @@
     transform: translateY(0);
   }
 
+  /* ===== SCROLL PROGRESS BAR ===== */
+  #scroll-progress {
+    position: fixed;
+    top: 0; left: 0;
+    width: 0%;
+    height: 3px;
+    background: linear-gradient(90deg, var(--turq), var(--gold), var(--turq));
+    background-size: 200% 100%;
+    z-index: 9999;
+    transition: width 0.1s linear;
+    animation: progressShimmer 2s linear infinite;
+    box-shadow: 0 0 10px rgba(0,180,216,0.6);
+  }
+
+  @keyframes progressShimmer {
+    0% { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+  }
+
   /* ===== NAV ===== */
   nav {
     position: fixed;
@@ -897,6 +916,9 @@
 </head>
 <body>
 
+<!-- SCROLL PROGRESS -->
+<div id="scroll-progress"></div>
+
 <!-- NAV -->
 <nav>
   <div class="nav-brand">شاليهات هشام العبد</div>
@@ -911,6 +933,7 @@
 
 <!-- HERO -->
 <div class="hero">
+  <canvas id="starsCanvas" style="position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:0;"></canvas>
   <div class="circle circle-1"></div>
   <div class="circle circle-2"></div>
   <div class="circle circle-3"></div>
@@ -942,19 +965,19 @@
 <!-- STATS -->
 <div class="stats">
   <div class="stat fade-in">
-    <div class="stat-num">١٥+</div>
+    <div class="stat-num" data-target="15" data-suffix="+">٠</div>
     <div class="stat-label">حمام سباحة</div>
   </div>
   <div class="stat fade-in">
-    <div class="stat-num">٥</div>
+    <div class="stat-num" data-target="5" data-suffix="">٠</div>
     <div class="stat-label">دقائق من وسط مطروح</div>
   </div>
   <div class="stat fade-in">
-    <div class="stat-num">٤</div>
+    <div class="stat-num" data-target="4" data-suffix="">٠</div>
     <div class="stat-label">أفراد كحد أقصى</div>
   </div>
   <div class="stat fade-in">
-    <div class="stat-num">١٠٠%</div>
+    <div class="stat-num" data-target="100" data-suffix="%">٠</div>
     <div class="stat-label">تكييف كامل</div>
   </div>
 </div>
@@ -1183,11 +1206,11 @@
 
     <div class="contact-card fade-in">
       <div class="contact-methods">
-        <a href="tel:+20XXXXXXXXXX" class="contact-method">
+        <a href="tel:+201015753775" class="contact-method">
           <span class="contact-method-icon">📞</span>
           <div class="contact-method-info">
             <div class="contact-method-label">اتصل بنا مباشرة</div>
-            <div class="contact-method-value">هشام العبد — بورتو مطروح</div>
+            <div class="contact-method-value">01015753775</div>
           </div>
         </a>
         <a href="https://www.facebook.com/HeshamElAbdPortoMatrouh/" target="_blank" class="contact-method">
@@ -1273,6 +1296,31 @@
   }, { threshold: 0.1 });
   document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 
+  // Counter animation
+  function animateCounter(el, target, duration = 1800, suffix = '') {
+    let start = 0;
+    const step = target / (duration / 16);
+    const timer = setInterval(() => {
+      start += step;
+      if (start >= target) { start = target; clearInterval(timer); }
+      el.textContent = Math.floor(start).toLocaleString('ar-EG') + suffix;
+    }, 16);
+  }
+
+  const counterObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const el = entry.target;
+        const raw = el.dataset.target;
+        const suffix = el.dataset.suffix || '';
+        animateCounter(el, parseFloat(raw), 1800, suffix);
+        counterObserver.unobserve(el);
+      }
+    });
+  }, { threshold: 0.5 });
+
+  document.querySelectorAll('[data-target]').forEach(el => counterObserver.observe(el));
+
   // Smooth scroll
   document.querySelectorAll('a[href^="#"]').forEach(a => {
     a.addEventListener('click', e => {
@@ -1281,6 +1329,15 @@
       if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
     });
   });
+
+  // Scroll progress bar
+  const progressBar = document.getElementById('scroll-progress');
+  window.addEventListener('scroll', () => {
+    const scrollTop = window.scrollY;
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const progress = (scrollTop / docHeight) * 100;
+    progressBar.style.width = progress + '%';
+  }, { passive: true });
 </script>
 
 <!-- PREMIUM UPGRADE START -->
@@ -1321,8 +1378,10 @@ linear-gradient(160deg,#06101d 0%, #0a1628 35%, #0d2240 70%, #1a4a7a 100%)}
 .section-h2{font-family:Tahoma,sans-serif;font-size:clamp(30px,4.5vw,54px);line-height:1.12;color:#fff;margin:0 0 14px;font-weight:900}
 .section-p{color:rgba(255,255,255,.72);line-height:2;font-size:17px;margin:0}
 .grid-pro{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
-.card-pro{background:linear-gradient(135deg,rgba(255,255,255,.07),rgba(255,255,255,.04));border:1px solid rgba(255,255,255,.09);border-radius:26px;padding:28px;box-shadow:0 24px 70px rgba(0,0,0,.16);backdrop-filter:blur(14px);transition:transform .25s ease,border-color .25s ease,box-shadow .25s ease}
-.card-pro:hover{transform:translateY(-5px);border-color:rgba(0,180,216,.28);box-shadow:0 30px 80px rgba(0,0,0,.22)}
+.card-pro{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.12);border-radius:26px;padding:28px;backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);box-shadow:0 8px 32px rgba(0,0,0,0.2), inset 0 1px 0 rgba(255,255,255,0.1);transition:transform .25s ease,border-color .25s ease,box-shadow .25s ease,background .25s ease;position:relative;overflow:hidden}
+.card-pro::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.2),transparent)}
+.card-pro::after{content:'';position:absolute;top:-60px;right:-60px;width:140px;height:140px;background:radial-gradient(circle,rgba(0,180,216,0.12),transparent 70%);pointer-events:none}
+.card-pro:hover{transform:translateY(-5px);border-color:rgba(0,180,216,0.35);box-shadow:0 20px 60px rgba(0,0,0,0.3), 0 0 0 1px rgba(0,180,216,0.15), inset 0 1px 0 rgba(255,255,255,0.15);background:rgba(255,255,255,0.07)}
 .card-icon{font-size:38px;margin-bottom:18px;display:inline-block}
 .card-title{font-size:22px;font-weight:900;color:#fff;margin:0 0 10px}
 .card-text{margin:0;color:rgba(255,255,255,.72);line-height:1.95}
@@ -1357,6 +1416,7 @@ linear-gradient(160deg,#06101d 0%, #0a1628 35%, #0d2240 70%, #1a4a7a 100%)}
 </style>
 
 <section id="premium-hero">
+  <canvas id="starsCanvas2" style="position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:0;"></canvas>
   <div class="premium-shell">
     <div class="premium-kicker fade-in">PORTO MATROUH · BEACH LUXURY</div>
     <h1 class="premium-title fade-in">إقامة <span>Premium</span> على شاطئ المتوسط</h1>
@@ -1369,9 +1429,9 @@ linear-gradient(160deg,#06101d 0%, #0a1628 35%, #0d2240 70%, #1a4a7a 100%)}
     <div class="premium-strip fade-in"><b>الموسم:</b> أواخر مايو · <b>الخدمات:</b> عائلات / أزواج / مجموعات · <b>التواصل:</b> مباشر وسريع</div>
     <div class="premium-metrics fade-in">
       <div class="metric"><div class="num">24/7</div><div class="lbl">دعم وحجز</div></div>
-      <div class="metric"><div class="num">5★</div><div class="lbl">إحساس فاخر</div></div>
-      <div class="metric"><div class="num">100%</div><div class="lbl">Responsive</div></div>
-      <div class="metric"><div class="num">0</div><div class="lbl">عناصر مكسورة</div></div>
+      <div class="metric"><div class="num" data-target="5" data-suffix="★">0</div><div class="lbl">إحساس فاخر</div></div>
+      <div class="metric"><div class="num" data-target="100" data-suffix="%">0</div><div class="lbl">رضا العملاء</div></div>
+      <div class="metric"><div class="num" data-target="3" data-suffix="">0</div><div class="lbl">أنواع شاليهات</div></div>
     </div>
   </div>
 </section>
@@ -1440,6 +1500,88 @@ linear-gradient(160deg,#06101d 0%, #0a1628 35%, #0d2240 70%, #1a4a7a 100%)}
 </script>
 <!-- PREMIUM UPGRADE END -->
 
-</body>
+<script>
+// ===== STARS ANIMATION =====
+function initStars(canvasId) {
+  const canvas = document.getElementById(canvasId);
+  if (!canvas) return;
+  const ctx = canvas.getContext('2d');
+  let stars = [];
+  const COUNT = 120;
 
+  function resize() {
+    canvas.width  = canvas.offsetWidth;
+    canvas.height = canvas.offsetHeight;
+  }
+
+  function createStar() {
+    return {
+      x: Math.random() * canvas.width,
+      y: Math.random() * canvas.height,
+      r: Math.random() * 1.5 + 0.3,
+      alpha: Math.random(),
+      speed: Math.random() * 0.004 + 0.002,
+      drift: (Math.random() - 0.5) * 0.15,
+      twinkleSpeed: Math.random() * 0.02 + 0.005,
+      twinkleDir: Math.random() > 0.5 ? 1 : -1,
+      color: Math.random() > 0.85
+        ? `rgba(240,192,96,`   // gold stars
+        : Math.random() > 0.6
+          ? `rgba(0,180,216,`  // turq stars
+          : `rgba(255,255,255,` // white stars
+    };
+  }
+
+  function init() {
+    resize();
+    stars = Array.from({ length: COUNT }, createStar);
+  }
+
+  function draw() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    stars.forEach(s => {
+      // twinkle
+      s.alpha += s.twinkleSpeed * s.twinkleDir;
+      if (s.alpha >= 1)   { s.alpha = 1;   s.twinkleDir = -1; }
+      if (s.alpha <= 0.1) { s.alpha = 0.1; s.twinkleDir =  1; }
+
+      // drift upward slowly
+      s.y -= s.speed;
+      s.x += s.drift;
+
+      // reset if out of bounds
+      if (s.y < -2) { s.y = canvas.height + 2; s.x = Math.random() * canvas.width; }
+      if (s.x < -2 || s.x > canvas.width + 2) s.x = Math.random() * canvas.width;
+
+      // glow effect for bigger stars
+      if (s.r > 1.2) {
+        const glow = ctx.createRadialGradient(s.x, s.y, 0, s.x, s.y, s.r * 4);
+        glow.addColorStop(0, s.color + s.alpha * 0.6 + ')');
+        glow.addColorStop(1, s.color + '0)');
+        ctx.beginPath();
+        ctx.arc(s.x, s.y, s.r * 4, 0, Math.PI * 2);
+        ctx.fillStyle = glow;
+        ctx.fill();
+      }
+
+      // star dot
+      ctx.beginPath();
+      ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
+      ctx.fillStyle = s.color + s.alpha + ')';
+      ctx.fill();
+    });
+
+    requestAnimationFrame(draw);
+  }
+
+  window.addEventListener('resize', () => { resize(); });
+  init();
+  draw();
+}
+
+initStars('starsCanvas');
+initStars('starsCanvas2');
+</script>
+
+</body>
 </html>
