@@ -969,7 +969,7 @@
     <div class="stat-label">حمام سباحة</div>
   </div>
   <div class="stat fade-in">
-    <div class="stat-num" data-target="5" data-suffix="">٠</div>
+    <div class="stat-num" data-target="15" data-suffix="">٠</div>
     <div class="stat-label">دقائق من وسط مطروح</div>
   </div>
   <div class="stat fade-in">
@@ -1185,7 +1185,7 @@
       <h2 class="section-title">في قلب<br><span>بورتو مطروح</span></h2>
       <p class="section-body">موقع استراتيجي مميز يجمع بين الهدوء والقرب من كل الخدمات</p>
       <ul class="location-points">
-        <li><span class="loc-dot"></span> ٥ دقائق من وسط مدينة مطروح</li>
+        <li><span class="loc-dot"></span> ١٥ دقيقة من وسط مدينة مطروح</li>
         <li><span class="loc-dot"></span> على مدخل شاطئ الغرام الشهير</li>
         <li><span class="loc-dot"></span> قريب من مطار مرسى مطروح</li>
         <li><span class="loc-dot"></span> جميع الخدمات على مقربة من المنتجع</li>
@@ -1368,8 +1368,11 @@ linear-gradient(160deg,#06101d 0%, #0a1628 35%, #0d2240 70%, #1a4a7a 100%)}
 .pbtn.secondary{background:rgba(255,255,255,.08);color:#fff;border:1px solid rgba(255,255,255,.14)}
 .pbtn:hover{transform:translateY(-2px)}
 .premium-metrics{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin-top:28px}
-.metric{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.10);border-radius:22px;padding:22px 18px;backdrop-filter:blur(12px);box-shadow:0 20px 50px rgba(0,0,0,.12)}
-.metric .num{font-size:clamp(28px,4vw,48px);font-weight:900;color:#f7d98a;line-height:1;margin-bottom:8px}
+.metric{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.10);border-radius:22px;padding:26px 18px;backdrop-filter:blur(12px);box-shadow:0 20px 50px rgba(0,0,0,.12);transition:transform .3s ease,border-color .3s ease,box-shadow .3s ease;position:relative;overflow:hidden;cursor:default}
+.metric::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(201,149,42,0.5),transparent)}
+.metric:hover{transform:translateY(-5px);border-color:rgba(201,149,42,0.4);box-shadow:0 25px 60px rgba(0,0,0,.2),0 0 30px rgba(201,149,42,0.12)}
+.metric .icon{font-size:26px;margin-bottom:10px;display:block;filter:drop-shadow(0 0 8px rgba(201,149,42,0.5))}
+.metric .num{font-size:clamp(28px,4vw,48px);font-weight:900;color:#f7d98a;line-height:1;margin-bottom:8px;text-shadow:0 0 20px rgba(247,217,138,0.4)}
 .metric .lbl{font-size:13px;letter-spacing:1px;color:rgba(255,255,255,.72)}
 .section-pro{padding:90px 20px}
 .section-inner{max-width:1200px;margin:auto}
@@ -1377,6 +1380,18 @@ linear-gradient(160deg,#06101d 0%, #0a1628 35%, #0d2240 70%, #1a4a7a 100%)}
 .section-tag{color:#00b4d8;letter-spacing:3px;text-transform:uppercase;font-size:12px;font-weight:800;margin-bottom:12px}
 .section-h2{font-family:Tahoma,sans-serif;font-size:clamp(30px,4.5vw,54px);line-height:1.12;color:#fff;margin:0 0 14px;font-weight:900}
 .section-p{color:rgba(255,255,255,.72);line-height:2;font-size:17px;margin:0}
+.card-tier{font-size:12px;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,.45);margin-bottom:8px;font-weight:700}
+.card-features{list-style:none;margin-top:16px;display:flex;flex-direction:column;gap:8px}
+.card-features li{font-size:14px;color:rgba(255,255,255,.6);padding-right:18px;position:relative}
+.card-features li::before{content:'✦';position:absolute;right:0;color:rgba(255,255,255,.3);font-size:10px;top:2px}
+.card-featured{border-color:rgba(0,180,216,0.4)!important;box-shadow:0 8px 32px rgba(0,0,0,0.2),0 0 40px rgba(0,180,216,0.1),inset 0 1px 0 rgba(255,255,255,0.1)!important}
+.card-featured .card-features li::before{color:rgba(0,180,216,.6)}
+.card-vip{border-color:rgba(201,149,42,0.4)!important;background:linear-gradient(135deg,rgba(201,149,42,0.08),rgba(255,255,255,0.04))!important;box-shadow:0 8px 32px rgba(0,0,0,0.2),0 0 40px rgba(201,149,42,0.1),inset 0 1px 0 rgba(255,255,255,0.1)!important}
+.card-vip .card-features li::before{color:rgba(240,192,96,.7)}
+.card-badge{display:inline-block;background:rgba(0,180,216,0.15);border:1px solid rgba(0,180,216,0.3);color:#00b4d8;font-size:11px;font-weight:800;letter-spacing:1.5px;padding:4px 12px;border-radius:999px;margin-bottom:14px}
+.card-badge-gold{background:rgba(201,149,42,0.15);border-color:rgba(201,149,42,0.35);color:#f0c060}
+.cta-contact{margin-top:40px;text-align:center;padding:36px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.09);border-radius:26px;display:flex;align-items:center;justify-content:center;gap:24px;flex-wrap:wrap}
+.cta-contact-text{color:rgba(255,255,255,.75);font-size:17px;margin:0}
 .grid-pro{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
 .card-pro{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.12);border-radius:26px;padding:28px;backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);box-shadow:0 8px 32px rgba(0,0,0,0.2), inset 0 1px 0 rgba(255,255,255,0.1);transition:transform .25s ease,border-color .25s ease,box-shadow .25s ease,background .25s ease;position:relative;overflow:hidden}
 .card-pro::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.2),transparent)}
@@ -1420,15 +1435,14 @@ linear-gradient(160deg,#06101d 0%, #0a1628 35%, #0d2240 70%, #1a4a7a 100%)}
   <div class="premium-shell">
     <div class="premium-kicker fade-in">PORTO MATROUH · BEACH LUXURY</div>
     <h1 class="premium-title fade-in">إقامة <span>Premium</span> على شاطئ المتوسط</h1>
-    <p class="premium-sub fade-in"></p>
+
     <div class="premium-actions fade-in">
       <a class="pbtn primary" href="https://wa.me/201015753775" target="_blank" rel="noopener">احجز واتساب الآن</a>
-      <a class="pbtn secondary" href="#removed-gallery"></a>
       <a class="pbtn secondary" href="#premium-faq">الأسئلة الشائعة</a>
     </div>
     <div class="premium-strip fade-in"><b>الموسم:</b> أواخر مايو · <b>الخدمات:</b> عائلات / أزواج / مجموعات · <b>التواصل:</b> مباشر وسريع</div>
     <div class="premium-metrics fade-in">
-      <div class="metric"><div class="num">24/7</div><div class="lbl">دعم وحجز</div></div>
+      <div class="metric"><div class="num">٢٤/٧</div><div class="lbl">دعم وحجز</div></div>
       <div class="metric"><div class="num" data-target="5" data-suffix="★">0</div><div class="lbl">إحساس فاخر</div></div>
       <div class="metric"><div class="num" data-target="100" data-suffix="%">0</div><div class="lbl">رضا العملاء</div></div>
       <div class="metric"><div class="num" data-target="3" data-suffix="">0</div><div class="lbl">أنواع شاليهات</div></div>
@@ -1444,16 +1458,55 @@ linear-gradient(160deg,#06101d 0%, #0a1628 35%, #0d2240 70%, #1a4a7a 100%)}
       <p class="section-p">الشاليهات المميزه الوحيده ف القريه بلا منافس</p>
     </div>
     <div class="grid-pro">
-      <div class="card-pro fade-in"><div class="card-title">شاليه 2 غرف</div><div class="card-text">مناسب لعائلة صغيرة، مطبخ مجهز، إطلالة مريحة، وسعر تنافسي.</div></div>
-      <div class="card-pro fade-in"><div class="card-title">شاليه 3 غرف فاخر</div><div class="card-text">مناسب للعائلات الكبيرة، مساحة أوسع، وراحة أعلى وتجربة أكثر خصوصية.</div></div>
-      <div class="card-pro fade-in"><div class="card-title">شاليه 4 غرف VIP</div><div class="card-text">الشاليه الوحيد في القرية بتشطيب فاخر على أعلى مستوى، بتصميم راقٍ يليق بالعائلات الكبيرة والذوق الرفيع. مساحة أوسع، خصوصية أعلى، وإحساس إقامة مميز من أول لحظة. مناسب للضيوف اللي بيدوروا على مستوى استثنائي من الراحة، مع تفاصيل داخلية متقنة، خامات ممتازة، وتشطيبات تعكس فخامة حقيقية في كل ركن.</div></div>
-      <div class="card-pro fade-in"><div class="card-title">تواصل وحجز</div><div class="card-text">واتساب مباشر، اتصال هاتفي، ورسالة واضحة عن الموسم وموعد البداية.</div></div>
+      <div class="card-pro fade-in">
+        <div class="card-tier">٢ غرفة</div>
+        <div class="card-title">شاليه عائلي</div>
+        <div class="card-text">مناسب لعائلة صغيرة، مطبخ مجهز، إطلالة مريحة، وسعر تنافسي.</div>
+        <ul class="card-features">
+          <li>مطبخ مجهز بالكامل</li>
+          <li>إطلالة مريحة</li>
+          <li>مناسب لـ +٧ أفراد</li>
+        </ul>
+      </div>
+
+      <div class="card-pro card-featured fade-in">
+        <div class="card-badge">الأكثر طلباً</div>
+        <div class="card-tier" style="color:#00b4d8">٣ غرف</div>
+        <div class="card-title">شاليه فاخر</div>
+        <div class="card-text">مناسب للعائلات الكبيرة، مساحة أوسع، وراحة أعلى وتجربة أكثر خصوصية.</div>
+        <ul class="card-features">
+          <li>مساحة أوسع وخصوصية أعلى</li>
+          <li>مناسب لـ +٨ أفراد</li>
+          <li>تجهيزات متكاملة</li>
+        </ul>
+      </div>
+
+      <div class="card-pro card-vip fade-in">
+        <div class="card-badge card-badge-gold">VIP حصري</div>
+        <div class="card-tier" style="color:#f0c060">٤ غرف</div>
+        <div class="card-title">شاليه VIP</div>
+        <div class="card-text">الشاليه الوحيد في القرية بتشطيب فاخر على أعلى مستوى، خامات ممتازة وتفاصيل داخلية متقنة.</div>
+        <ul class="card-features">
+          <li>تشطيب فاخر لا مثيل له في القرية</li>
+          <li>خصوصية تامة ومساحة ملكية</li>
+          <li>مناسب لـ +١٠ أفراد</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="cta-contact fade-in">
+      <p class="cta-contact-text">جاهز تحجز؟ تواصل معنا الآن مباشرة</p>
+      <a class="pbtn primary" href="https://wa.me/201015753775?text=مرحبا،%20عايز%20احجز%20شاليه%20في%20بورتو%20مطروح" target="_blank" rel="noopener">احجز واتساب الآن</a>
     </div>
 
           <div id="premium-faq" class="premium-qa">
       <div class="qa-item fade-in"><div class="qa-q"><span>متى يبدأ الموسم؟</span><span>+</span></div><div class="qa-a">الموسم يبدأ أواخر مايو، والحجز المسبق متاح قبلها مع أولوية في الاختيار.</div></div>
       <div class="qa-item fade-in"><div class="qa-q"><span>إيه اللي يميز الشاليه؟</span><span>+</span></div><div class="qa-a">تصميم مريح، خدمات مناسبة للعائلات، وموقع يخدم الراحة والهدوء والقرب من الخدمات.</div></div>
       <div class="qa-item fade-in"><div class="qa-q"><span>أحجز إزاي؟</span><span>+</span></div><div class="qa-a">اضغط زر واتساب الثابت أو زر الحجز في أعلى الصفحة، وهيتم التواصل فورًا.</div></div>
+      <div class="qa-item fade-in"><div class="qa-q"><span>هل في موقف سيارات؟</span><span>+</span></div><div class="qa-a">نعم، يوجد موقف سيارات خاص متاح لجميع ضيوف الشاليهات بدون أي رسوم إضافية.</div></div>
+      <div class="qa-item fade-in"><div class="qa-q"><span>هل الحجز بعربون؟ وإيه طرق الدفع؟</span><span>+</span></div><div class="qa-a">نعم، يتم تثبيت الحجز بعربون يعادل قيمة ليلة واحدة. طرق الدفع المتاحة هي InstaPay أو أي محفظة إلكترونية — سهل وسريع ومن غير أي تعقيد.</div></div>
+      <div class="qa-item fade-in"><div class="qa-q"><span>هل المطبخ مجهز بالكامل؟</span><span>+</span></div><div class="qa-a">بالكامل! المطبخ مجهز بكل الأساسيات من معالق وسكاكين وحلل وأدوات الطهي — كل اللي محتاجه موجود. وتنبيه مهم: جميع البوتاجازات في القرية تعمل بالكهرباء لضمان أعلى معايير الأمان وتجنب أي مخاطر.</div></div>
+      <div class="qa-item fade-in"><div class="qa-q"><span>هل ممكن إلغاء الحجز؟</span><span>+</span></div><div class="qa-a">نعم، الإلغاء متاح بشرط إخطارنا قبل موعد الحجز بأسبوع على الأقل. يُنصح بالتواصل المبكر لضمان استرداد العربون دون أي إشكاليات.</div></div>
     </div>
   </div>
 </section>
@@ -1484,13 +1537,18 @@ linear-gradient(160deg,#06101d 0%, #0a1628 35%, #0d2240 70%, #1a4a7a 100%)}
   });
 
   // Counter animation for premium metrics
+  function toArabicNumerals(n) {
+    return String(n).replace(/[0-9]/g, d => '٠١٢٣٤٥٦٧٨٩'[d]);
+  }
+
   function animateCounterPremium(el, target, duration, suffix) {
     let start = 0;
     const step = target / (duration / 16);
     const timer = setInterval(() => {
       start += step;
       if (start >= target) { start = target; clearInterval(timer); }
-      el.textContent = (Number.isInteger(target) ? Math.floor(start) : start.toFixed(1)) + suffix;
+      const num = Number.isInteger(target) ? Math.floor(start) : start.toFixed(1);
+      el.textContent = toArabicNumerals(num) + suffix;
     }, 16);
   }
 
