@@ -7,15 +7,16 @@
 <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800;900&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
 <style>
   :root {
-    --navy: #0a1628;
-    --deep-blue: #0d2240;
-    --ocean: #1a4a7a;
-    --sky: #2e7bc4;
-    --turq: #00b4d8;
-    --sand: #e8d5b0;
-    --gold: #c9952a;
-    --gold-light: #f0c060;
-    --cream: #fdf6e9;
+    /* Aura Chalets Palette */
+    --navy: #1a3533;        /* تيل داكن عميق - بديل الـ navy */
+    --deep-blue: #2D5F5D;   /* تيل داكن - بديل الـ deep-blue */
+    --ocean: #3d7a77;       /* تيل متوسط - بديل الـ ocean */
+    --sky: #5a9e9b;         /* تيل فاتح - بديل الـ sky */
+    --turq: #B2DFDB;        /* تيل ناعم فاتح جداً - بديل الـ turq */
+    --sand: #C9A870;        /* ذهبي/بيج - بديل الـ sand */
+    --gold: #b8934a;        /* ذهبي داكن - بديل الـ gold */
+    --gold-light: #F1E4C0;  /* كريمي أصفر - بديل الـ gold-light */
+    --cream: #F5F1E8;       /* خلفية كريمية - بديل الـ cream */
     --white: #ffffff;
   }
 
@@ -55,8 +56,8 @@
     position: absolute;
     top: -50%; left: -50%;
     width: 200%; height: 200%;
-    background: radial-gradient(ellipse at 60% 40%, rgba(0,180,216,0.15) 0%, transparent 60%),
-                radial-gradient(ellipse at 20% 80%, rgba(201,149,42,0.1) 0%, transparent 50%);
+    background: radial-gradient(ellipse at 60% 40%, rgba(178,223,219,0.15) 0%, transparent 60%),
+                radial-gradient(ellipse at 20% 80%, rgba(184,147,74,0.1) 0%, transparent 50%);
     animation: shimmer 8s ease-in-out infinite alternate;
   }
 
@@ -69,7 +70,7 @@
   .circle {
     position: absolute;
     border-radius: 50%;
-    border: 1px solid rgba(0,180,216,0.2);
+    border: 1px solid rgba(178,223,219,0.2);
     animation: pulse-ring 6s ease-in-out infinite;
   }
   .circle-1 { width: 600px; height: 600px; top: -200px; left: -200px; animation-delay: 0s; }
@@ -82,8 +83,8 @@
   }
 
   .hero-badge {
-    background: linear-gradient(135deg, rgba(201,149,42,0.2), rgba(240,192,96,0.3));
-    border: 1px solid rgba(201,149,42,0.5);
+    background: linear-gradient(135deg, rgba(184,147,74,0.2), rgba(241,228,192,0.3));
+    border: 1px solid rgba(184,147,74,0.5);
     color: var(--gold-light);
     padding: 8px 24px;
     border-radius: 50px;
@@ -103,7 +104,7 @@
     color: var(--white);
     position: relative;
     animation: fadeDown 0.9s ease 0.1s both;
-    text-shadow: 0 0 60px rgba(0,180,216,0.3);
+    text-shadow: 0 0 60px rgba(178,223,219,0.3);
   }
 
   .hero-logo span {
@@ -158,14 +159,14 @@
     text-decoration: none;
     font-family: 'Tajawal', sans-serif;
     transition: all 0.3s ease;
-    box-shadow: 0 8px 30px rgba(201,149,42,0.4);
+    box-shadow: 0 8px 30px rgba(184,147,74,0.4);
     cursor: pointer;
     border: none;
   }
 
   .btn-primary:hover {
     transform: translateY(-3px);
-    box-shadow: 0 12px 40px rgba(201,149,42,0.6);
+    box-shadow: 0 12px 40px rgba(184,147,74,0.6);
   }
 
   .btn-secondary {
@@ -299,7 +300,7 @@
 
   /* ===== FEATURES ===== */
   .features-section {
-    background: var(--deep-blue);
+    background: var(--navy);
   }
 
   .features-wrap {
@@ -316,38 +317,56 @@
   }
 
   .feature-card {
-    background: linear-gradient(135deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02));
-    border: 1px solid rgba(255,255,255,0.08);
-    border-radius: 20px;
+    background: linear-gradient(145deg, rgba(61,122,119,0.25), rgba(26,53,51,0.6));
+    border: 1px solid rgba(178,223,219,0.18);
+    border-radius: 24px;
     padding: 36px 30px;
     transition: all 0.4s ease;
     position: relative;
     overflow: hidden;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.25), inset 0 1px 0 rgba(255,255,255,0.08);
   }
 
   .feature-card::before {
     content: '';
     position: absolute;
-    top: 0; right: 0;
-    width: 100px; height: 100px;
-    background: radial-gradient(circle, rgba(0,180,216,0.15), transparent 70%);
+    top: -20px; right: -20px;
+    width: 120px; height: 120px;
+    background: radial-gradient(circle, rgba(184,147,74,0.18), transparent 70%);
     transition: all 0.4s ease;
   }
 
+  .feature-card::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, rgba(178,223,219,0.4), transparent);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+  }
+
   .feature-card:hover {
-    transform: translateY(-6px);
-    border-color: rgba(0,180,216,0.3);
-    box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+    transform: translateY(-8px);
+    border-color: rgba(178,223,219,0.45);
+    background: linear-gradient(145deg, rgba(61,122,119,0.4), rgba(26,53,51,0.75));
+    box-shadow: 0 24px 60px rgba(0,0,0,0.35), 0 0 40px rgba(178,223,219,0.08);
   }
 
   .feature-card:hover::before {
-    width: 200px; height: 200px;
+    width: 220px; height: 220px;
+    background: radial-gradient(circle, rgba(184,147,74,0.22), transparent 70%);
+  }
+
+  .feature-card:hover::after {
+    opacity: 1;
   }
 
   .feature-icon {
-    font-size: 36px;
+    font-size: 40px;
     margin-bottom: 20px;
     display: block;
+    filter: drop-shadow(0 4px 12px rgba(178,223,219,0.3));
   }
 
   .feature-title {
@@ -359,7 +378,7 @@
 
   .feature-desc {
     font-size: 15px;
-    color: rgba(255,255,255,0.55);
+    color: rgba(255,255,255,0.65);
     line-height: 1.8;
   }
 
@@ -381,30 +400,50 @@
     margin-top: 60px;
   }
 
+  /* LIQUID GLASS */
   .price-card {
-    border-radius: 24px;
+    border-radius: 28px;
     padding: 40px 32px;
     position: relative;
     overflow: hidden;
-    transition: transform 0.3s ease;
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
+    backdrop-filter: blur(28px) saturate(160%);
+    -webkit-backdrop-filter: blur(28px) saturate(160%);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.25), inset 0 1px 0 rgba(255,255,255,0.22), inset 0 -1px 0 rgba(255,255,255,0.05);
   }
-
-  .price-card:hover { transform: translateY(-6px); }
-
+  .price-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: radial-gradient(ellipse at 30% 0%, rgba(255,255,255,0.12) 0%, transparent 60%);
+    pointer-events: none;
+  }
+  .price-card::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.45), transparent);
+    pointer-events: none;
+  }
+  .price-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 60px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.28), inset 0 -1px 0 rgba(255,255,255,0.08);
+  }
   .price-card.basic {
-    background: linear-gradient(135deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02));
-    border: 1px solid rgba(255,255,255,0.1);
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.14);
   }
-
   .price-card.featured {
-    background: linear-gradient(135deg, var(--ocean), var(--deep-blue));
-    border: 1px solid rgba(0,180,216,0.4);
-    box-shadow: 0 0 60px rgba(0,180,216,0.15);
+    background: rgba(61,122,119,0.22);
+    border: 1px solid rgba(178,223,219,0.35);
+    box-shadow: 0 8px 40px rgba(0,0,0,0.25), 0 0 50px rgba(178,223,219,0.1), inset 0 1px 0 rgba(255,255,255,0.25);
   }
-
   .price-card.premium {
-    background: linear-gradient(135deg, rgba(201,149,42,0.15), rgba(201,149,42,0.05));
-    border: 1px solid rgba(201,149,42,0.3);
+    background: rgba(184,147,74,0.1);
+    border: 1px solid rgba(184,147,74,0.28);
+    box-shadow: 0 8px 40px rgba(0,0,0,0.25), inset 0 1px 0 rgba(255,255,255,0.22);
   }
 
   .featured-badge {
@@ -503,7 +542,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    border: 1px solid rgba(0,180,216,0.2);
+    border: 1px solid rgba(178,223,219,0.2);
     position: relative;
     overflow: hidden;
     gap: 16px;
@@ -513,7 +552,7 @@
     content: '';
     position: absolute;
     inset: 0;
-    background: radial-gradient(circle at 50% 50%, rgba(0,180,216,0.2), transparent 70%);
+    background: radial-gradient(circle at 50% 50%, rgba(178,223,219,0.2), transparent 70%);
   }
 
   .map-icon { font-size: 60px; position: relative; }
@@ -541,7 +580,7 @@
     border-radius: 50%;
     background: var(--turq);
     flex-shrink: 0;
-    box-shadow: 0 0 10px rgba(0,180,216,0.6);
+    box-shadow: 0 0 10px rgba(178,223,219,0.6);
   }
 
   /* ===== CONTACT ===== */
@@ -556,7 +595,7 @@
     content: '';
     position: absolute;
     inset: 0;
-    background: radial-gradient(ellipse at 50% 0%, rgba(0,180,216,0.2), transparent 60%);
+    background: radial-gradient(ellipse at 50% 0%, rgba(178,223,219,0.2), transparent 60%);
   }
 
   .contact-wrap {
@@ -598,8 +637,8 @@
   }
 
   .contact-method:hover {
-    background: rgba(0,180,216,0.15);
-    border-color: rgba(0,180,216,0.4);
+    background: rgba(178,223,219,0.15);
+    border-color: rgba(178,223,219,0.4);
     transform: translateX(-4px);
   }
 
@@ -674,7 +713,7 @@
     z-index: 9999;
     transition: width 0.1s linear;
     animation: progressShimmer 2s linear infinite;
-    box-shadow: 0 0 10px rgba(0,180,216,0.6);
+    box-shadow: 0 0 10px rgba(178,223,219,0.6);
   }
 
   @keyframes progressShimmer {
@@ -727,6 +766,247 @@
     .stats { gap: 30px; padding: 40px 20px; }
     .contact-card { padding: 30px 20px; }
   }
+
+  /* ===== GUIDE SECTION ===== */
+  .guide-section {
+    background: var(--deep-blue);
+  }
+
+  .guide-wrap {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 100px 40px;
+  }
+
+  .guide-tabs {
+    display: flex;
+    gap: 12px;
+    margin: 48px 0 48px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .guide-tab {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    color: rgba(255,255,255,0.6);
+    padding: 10px 28px;
+    border-radius: 50px;
+    font-family: 'Tajawal', sans-serif;
+    font-size: 15px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  .guide-tab:hover {
+    background: rgba(178,223,219,0.1);
+    border-color: rgba(178,223,219,0.4);
+    color: var(--white);
+  }
+
+  .guide-tab.active {
+    background: linear-gradient(135deg, var(--ocean), var(--sky));
+    border-color: var(--turq);
+    color: var(--white);
+    font-weight: 700;
+  }
+
+  .guide-panel { display: none; }
+  .guide-panel.active { display: block; }
+
+  .guide-row-wrap { position: relative; }
+
+  .guide-grid {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    padding: 12px 4px 20px;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  .guide-grid::-webkit-scrollbar { display: none; }
+
+  .guide-row-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-60%);
+    background: rgba(10,22,40,0.85);
+    border: 1px solid rgba(255,255,255,0.12);
+    color: white;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s;
+    z-index: 5;
+  }
+
+  .guide-row-btn:hover { background: var(--ocean); border-color: var(--turq); }
+  .guide-row-btn.row-prev { right: -16px; }
+  .guide-row-btn.row-next { left: -16px; }
+
+  .guide-card {
+    background: linear-gradient(135deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02));
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 20px;
+    overflow: hidden;
+    transition: all 0.4s ease;
+    position: relative;
+    min-width: 300px;
+    max-width: 300px;
+    flex-shrink: 0;
+  }
+
+  .guide-card:hover {
+    transform: translateY(-6px) scale(1.02);
+    border-color: rgba(178,223,219,0.3);
+    box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+  }
+
+  @media (max-width: 600px) {
+    .guide-card { min-width: 260px; max-width: 260px; }
+    .guide-row-btn { display: none; }
+  }
+
+  /* Slider */
+  .guide-slider {
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 16/9;
+    background: var(--navy);
+  }
+
+  .guide-slides {
+    display: flex;
+    transition: transform 0.5s cubic-bezier(0.4,0,0.2,1);
+    height: 100%;
+  }
+
+  .guide-slide {
+    min-width: 100%;
+    height: 100%;
+  }
+
+  .guide-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .guide-slide-placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, var(--ocean), var(--navy));
+    font-size: 48px;
+    gap: 12px;
+    color: rgba(255,255,255,0.3);
+    font-size: 14px;
+    font-family: 'Tajawal', sans-serif;
+  }
+
+  .guide-slide-placeholder span.icon { font-size: 48px; }
+
+  .guide-slider-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0,0,0,0.5);
+    border: none;
+    color: white;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.3s;
+    z-index: 2;
+  }
+
+  .guide-slider-btn:hover { background: rgba(178,223,219,0.7); }
+  .guide-slider-btn.prev { right: 10px; }
+  .guide-slider-btn.next { left: 10px; }
+
+  .guide-slider-dots {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 6px;
+    z-index: 2;
+  }
+
+  .guide-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.4);
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+
+  .guide-dot.active { background: var(--turq); }
+
+  .guide-card-body {
+    padding: 24px;
+  }
+
+  .guide-card-category {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    color: var(--turq);
+    margin-bottom: 8px;
+    text-transform: uppercase;
+  }
+
+  .guide-card-name {
+    font-family: 'Amiri', serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 10px;
+  }
+
+  .guide-card-desc {
+    font-size: 14px;
+    color: rgba(255,255,255,0.55);
+    line-height: 1.8;
+    margin-bottom: 16px;
+  }
+
+  .guide-card-meta {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .guide-meta-item {
+    font-size: 13px;
+    color: rgba(255,255,255,0.4);
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+
+  .guide-meta-item span { color: var(--gold-light); }
+
+  @media (max-width: 600px) {
+    .guide-wrap { padding: 70px 20px; }
+    }
 
   /* Wave SVG */
   .wave-divider {
@@ -816,8 +1096,8 @@
   }
 
   .carousel-btn:hover {
-    background: rgba(0,180,216,0.4);
-    border-color: rgba(0,180,216,0.6);
+    background: rgba(178,223,219,0.4);
+    border-color: rgba(178,223,219,0.6);
     transform: translateY(-50%) scale(1.1);
   }
 
@@ -926,6 +1206,7 @@
     <li><a href="#features">المميزات</a></li>
     <li><a href="#gallery">الصور</a></li>
     <li><a href="#pricing">الأسعار</a></li>
+    <li><a href="#guide">دليل مطروح</a></li>
     <li><a href="#location">الموقع</a></li>
     <li><a href="#contact">تواصل معنا</a></li>
   </ul>
@@ -1091,9 +1372,9 @@
 </div>
 
 <!-- WAVE -->
-<div class="wave-divider" style="background:#0d2240;">
+<div class="wave-divider" style="background:#2D5F5D;">
   <svg viewBox="0 0 1440 60" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
-    <path d="M0,30 C360,60 1080,0 1440,30 L1440,60 L0,60 Z" fill="#0a1628"/>
+    <path d="M0,30 C360,60 1080,0 1440,30 L1440,60 L0,60 Z" fill="#1a3533"/>
   </svg>
 </div>
 
@@ -1137,6 +1418,7 @@
         <ul class="price-features">
           <li>غرفة نوم واسعة</li>
           <li>ريسبشن كبير جداً</li>
+          <li>٢ حمام</li>
           <li>مطبخ مجهز بالكامل</li>
           <li>تكييف كامل</li>
           <li>شاطئ خاص + حمامات سباحة</li>
@@ -1156,6 +1438,7 @@
         <ul class="price-features">
           <li>غرفة واسعة</li>
           <li>مساحة معيشة واسعة</li>
+          <li>٢ حمام</li>
           <li>مطبخ فاخر متكامل</li>
           <li>حديقة أو تراس خاص</li>
           <li>كل مميزات الشاليه العائلي</li>
@@ -1172,69 +1455,6 @@
   </div>
 </div>
 
-<!-- LOCATION -->
-<div class="location-section" id="location">
-  <div class="location-wrap">
-    <div class="map-placeholder fade-in">
-      <div class="map-icon">📍</div>
-      <div class="map-text">بورتو مطروح</div>
-      <div class="map-coords">31.3°N — 27.2°E</div>
-    </div>
-    <div class="fade-in">
-      <div class="section-tag">✦ الموقع</div>
-      <h2 class="section-title">في قلب<br><span>بورتو مطروح</span></h2>
-      <p class="section-body">موقع استراتيجي مميز يجمع بين الهدوء والقرب من كل الخدمات</p>
-      <ul class="location-points">
-        <li><span class="loc-dot"></span> ١٥ دقيقة من وسط مدينة مطروح</li>
-        <li><span class="loc-dot"></span> على مدخل شاطئ الغرام الشهير</li>
-        <li><span class="loc-dot"></span> قريب من مطار مرسى مطروح</li>
-        <li><span class="loc-dot"></span> جميع الخدمات على مقربة من المنتجع</li>
-        <li><span class="loc-dot"></span> باصات نقل مجانية للشاطئ كل ساعة</li>
-      </ul>
-    </div>
-  </div>
-</div>
-
-<!-- CONTACT -->
-<div class="contact-section" id="contact">
-  <div class="contact-wrap">
-    <div class="fade-in">
-      <div class="section-tag">✦ تواصل معنا</div>
-      <h2 class="section-title">احجز <span>شاليهك</span> دلوقتي</h2>
-      <p class="section-body" style="margin: 0 auto;">تواصل معنا مباشرة للاستفسار وتأكيد الحجز، الموسم بيبدأ من أواخر مايو</p>
-    </div>
-
-    <div class="contact-card fade-in">
-      <div class="contact-methods">
-        <a href="tel:+201015753775" class="contact-method">
-          <span class="contact-method-icon">📞</span>
-          <div class="contact-method-info">
-            <div class="contact-method-label">اتصل بنا مباشرة</div>
-            <div class="contact-method-value">01015753775</div>
-          </div>
-        </a>
-        <a href="https://www.facebook.com/HeshamElAbdPortoMatrouh/" target="_blank" class="contact-method">
-          <span class="contact-method-icon">📘</span>
-          <div class="contact-method-info">
-            <div class="contact-method-label">صفحتنا على فيسبوك</div>
-            <div class="contact-method-value">شاليهات هشام العبد بورتو مطروح</div>
-          </div>
-        </a>
-      </div>
-      <div style="text-align:center;">
-        <a href="https://wa.me/201015753775" class="whatsapp-btn">
-          <span>💬</span> تواصل عبر واتساب
-        </a>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- FOOTER -->
-<footer>
-  <p>© ٢٠٢٦ <span>شاليهات هشام العبد</span> | بورتو مطروح، مرسى مطروح، مصر</p>
-  <p style="margin-top:8px; font-size:12px;">جميع الحقوق محفوظة</p>
-</footer>
 
 <!-- LIGHTBOX -->
 <div class="lightbox" id="lightbox">
@@ -1342,7 +1562,7 @@
 
 <!-- PREMIUM UPGRADE START -->
 <style>
-:root{--p1:#0a1628;--p2:#0d2240;--p3:#1a4a7a;--p4:#00b4d8;--p5:#c9952a;--p6:#fdf6e9}
+:root{--p1:#1a3533;--p2:#2D5F5D;--p3:#3d7a77;--p4:#B2DFDB;--p5:#b8934a;--p6:#F5F1E8}
 html{scroll-behavior:smooth}
 body{overscroll-behavior-y:none}
 
@@ -1351,52 +1571,53 @@ body{overscroll-behavior-y:none}
 
 
 #premium-hero{position:relative;margin-top:62px;min-height:100vh;display:grid;place-items:center;overflow:hidden;background:
-radial-gradient(circle at 20% 20%, rgba(0,180,216,.20), transparent 30%),
-radial-gradient(circle at 80% 30%, rgba(201,149,42,.16), transparent 25%),
-linear-gradient(160deg,#06101d 0%, #0a1628 35%, #0d2240 70%, #1a4a7a 100%)}
+radial-gradient(circle at 20% 20%, rgba(178,223,219,.20), transparent 30%),
+radial-gradient(circle at 80% 30%, rgba(184,147,74,.16), transparent 25%),
+linear-gradient(160deg,#0f2220 0%, #1a3533 35%, #2D5F5D 70%, #3d7a77 100%)}
 #premium-hero::before,#premium-hero::after{content:'';position:absolute;border-radius:50%;pointer-events:none}
-#premium-hero::before{width:520px;height:520px;top:-180px;left:-180px;border:1px solid rgba(0,180,216,.16)}
-#premium-hero::after{width:360px;height:360px;bottom:-120px;right:-80px;border:1px solid rgba(201,149,42,.16)}
+#premium-hero::before{width:520px;height:520px;top:-180px;left:-180px;border:1px solid rgba(178,223,219,.16)}
+#premium-hero::after{width:360px;height:360px;bottom:-120px;right:-80px;border:1px solid rgba(184,147,74,.16)}
 .premium-shell{position:relative;z-index:2;max-width:1180px;width:100%;padding:40px 20px 60px;text-align:center;color:#fff}
 .premium-kicker{display:inline-flex;align-items:center;gap:10px;padding:9px 16px;border-radius:999px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);backdrop-filter:blur(12px);letter-spacing:2px;text-transform:uppercase;font-size:12px}
 .premium-title{font-family:Tahoma,sans-serif;font-size:clamp(40px,8vw,86px);line-height:1.03;margin:18px auto 14px;max-width:980px;font-weight:900;text-wrap:balance}
-.premium-title span{background:linear-gradient(90deg,var(--p5),#f7d98a,var(--p5));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.premium-title span{background:linear-gradient(90deg,var(--p5),#F1E4C0,var(--p5));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
 .premium-sub{max-width:860px;margin:0 auto 30px;color:rgba(255,255,255,.82);font-size:clamp(16px,2vw,21px);line-height:1.95}
 .premium-actions{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:10px}
 .pbtn{display:inline-flex;align-items:center;justify-content:center;gap:10px;border-radius:999px;padding:16px 26px;font-weight:800;text-decoration:none;transition:transform .2s ease,box-shadow .2s ease,background .2s ease;border:none;cursor:pointer;font-family:Tahoma,sans-serif}
-.pbtn.primary{background:linear-gradient(135deg,var(--p5),#f0c060);color:#0a1628;box-shadow:0 12px 35px rgba(201,149,42,.32)}
+.pbtn.primary{background:linear-gradient(135deg,var(--p5),#F1E4C0);color:#1a3533;box-shadow:0 12px 35px rgba(184,147,74,.32)}
 .pbtn.secondary{background:rgba(255,255,255,.08);color:#fff;border:1px solid rgba(255,255,255,.14)}
 .pbtn:hover{transform:translateY(-2px)}
 .premium-metrics{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin-top:28px}
 .metric{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.10);border-radius:22px;padding:26px 18px;backdrop-filter:blur(12px);box-shadow:0 20px 50px rgba(0,0,0,.12);transition:transform .3s ease,border-color .3s ease,box-shadow .3s ease;position:relative;overflow:hidden;cursor:default}
-.metric::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(201,149,42,0.5),transparent)}
-.metric:hover{transform:translateY(-5px);border-color:rgba(201,149,42,0.4);box-shadow:0 25px 60px rgba(0,0,0,.2),0 0 30px rgba(201,149,42,0.12)}
-.metric .icon{font-size:26px;margin-bottom:10px;display:block;filter:drop-shadow(0 0 8px rgba(201,149,42,0.5))}
-.metric .num{font-size:clamp(28px,4vw,48px);font-weight:900;color:#f7d98a;line-height:1;margin-bottom:8px;text-shadow:0 0 20px rgba(247,217,138,0.4)}
+.metric::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(184,147,74,0.5),transparent)}
+.metric:hover{transform:translateY(-5px);border-color:rgba(184,147,74,0.4);box-shadow:0 25px 60px rgba(0,0,0,.2),0 0 30px rgba(184,147,74,0.12)}
+.metric .icon{font-size:26px;margin-bottom:10px;display:block;filter:drop-shadow(0 0 8px rgba(184,147,74,0.5))}
+.metric .num{font-size:clamp(28px,4vw,48px);font-weight:900;color:#F1E4C0;line-height:1;margin-bottom:8px;text-shadow:0 0 20px rgba(241,228,192,0.4)}
 .metric .lbl{font-size:13px;letter-spacing:1px;color:rgba(255,255,255,.72)}
 .section-pro{padding:90px 20px}
 .section-inner{max-width:1200px;margin:auto}
 .section-head{max-width:850px;margin:0 auto 34px;text-align:center}
-.section-tag{color:#00b4d8;letter-spacing:3px;text-transform:uppercase;font-size:12px;font-weight:800;margin-bottom:12px}
+.section-tag{color:#B2DFDB;letter-spacing:3px;text-transform:uppercase;font-size:12px;font-weight:800;margin-bottom:12px}
 .section-h2{font-family:Tahoma,sans-serif;font-size:clamp(30px,4.5vw,54px);line-height:1.12;color:#fff;margin:0 0 14px;font-weight:900}
 .section-p{color:rgba(255,255,255,.72);line-height:2;font-size:17px;margin:0}
 .card-tier{font-size:12px;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,.45);margin-bottom:8px;font-weight:700}
 .card-features{list-style:none;margin-top:16px;display:flex;flex-direction:column;gap:8px}
 .card-features li{font-size:14px;color:rgba(255,255,255,.6);padding-right:18px;position:relative}
 .card-features li::before{content:'✦';position:absolute;right:0;color:rgba(255,255,255,.3);font-size:10px;top:2px}
-.card-featured{border-color:rgba(0,180,216,0.4)!important;box-shadow:0 8px 32px rgba(0,0,0,0.2),0 0 40px rgba(0,180,216,0.1),inset 0 1px 0 rgba(255,255,255,0.1)!important}
-.card-featured .card-features li::before{color:rgba(0,180,216,.6)}
-.card-vip{border-color:rgba(201,149,42,0.4)!important;background:linear-gradient(135deg,rgba(201,149,42,0.08),rgba(255,255,255,0.04))!important;box-shadow:0 8px 32px rgba(0,0,0,0.2),0 0 40px rgba(201,149,42,0.1),inset 0 1px 0 rgba(255,255,255,0.1)!important}
-.card-vip .card-features li::before{color:rgba(240,192,96,.7)}
-.card-badge{display:inline-block;background:rgba(0,180,216,0.15);border:1px solid rgba(0,180,216,0.3);color:#00b4d8;font-size:11px;font-weight:800;letter-spacing:1.5px;padding:4px 12px;border-radius:999px;margin-bottom:14px}
-.card-badge-gold{background:rgba(201,149,42,0.15);border-color:rgba(201,149,42,0.35);color:#f0c060}
+.card-featured{border-color:rgba(178,223,219,0.4)!important;box-shadow:0 8px 32px rgba(0,0,0,0.2),0 0 40px rgba(178,223,219,0.1),inset 0 1px 0 rgba(255,255,255,0.1)!important}
+.card-featured .card-features li::before{color:rgba(178,223,219,.6)}
+.card-vip{border-color:rgba(184,147,74,0.4)!important;background:linear-gradient(135deg,rgba(184,147,74,0.08),rgba(255,255,255,0.04))!important;box-shadow:0 8px 32px rgba(0,0,0,0.2),0 0 40px rgba(184,147,74,0.1),inset 0 1px 0 rgba(255,255,255,0.1)!important}
+.card-vip .card-features li::before{color:rgba(241,228,192,.7)}
+.card-badge{display:inline-block;background:rgba(178,223,219,0.15);border:1px solid rgba(178,223,219,0.3);color:#B2DFDB;font-size:11px;font-weight:800;letter-spacing:1.5px;padding:4px 12px;border-radius:999px;margin-bottom:14px}
+.card-badge-gold{background:rgba(184,147,74,0.15);border-color:rgba(184,147,74,0.35);color:#F1E4C0}
 .cta-contact{margin-top:40px;text-align:center;padding:36px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.09);border-radius:26px;display:flex;align-items:center;justify-content:center;gap:24px;flex-wrap:wrap}
 .cta-contact-text{color:rgba(255,255,255,.75);font-size:17px;margin:0}
 .grid-pro{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
-.card-pro{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.12);border-radius:26px;padding:28px;backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);box-shadow:0 8px 32px rgba(0,0,0,0.2), inset 0 1px 0 rgba(255,255,255,0.1);transition:transform .25s ease,border-color .25s ease,box-shadow .25s ease,background .25s ease;position:relative;overflow:hidden}
-.card-pro::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.2),transparent)}
-.card-pro::after{content:'';position:absolute;top:-60px;right:-60px;width:140px;height:140px;background:radial-gradient(circle,rgba(0,180,216,0.12),transparent 70%);pointer-events:none}
-.card-pro:hover{transform:translateY(-5px);border-color:rgba(0,180,216,0.35);box-shadow:0 20px 60px rgba(0,0,0,0.3), 0 0 0 1px rgba(0,180,216,0.15), inset 0 1px 0 rgba(255,255,255,0.15);background:rgba(255,255,255,0.07)}
+.card-pro{background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.16);border-radius:28px;padding:28px;backdrop-filter:blur(32px) saturate(180%);-webkit-backdrop-filter:blur(32px) saturate(180%);box-shadow:0 8px 32px rgba(0,0,0,0.22),inset 0 1px 0 rgba(255,255,255,0.25),inset 0 -1px 0 rgba(255,255,255,0.06);transition:transform .3s ease,border-color .3s ease,box-shadow .3s ease,background .3s ease;position:relative;overflow:hidden}
+.card-pro::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.5),transparent)}
+.card-pro .glass-shine{content:'';position:absolute;inset:0;border-radius:inherit;background:radial-gradient(ellipse at 25% 0%,rgba(255,255,255,0.1) 0%,transparent 55%);pointer-events:none}
+.card-pro::after{content:'';position:absolute;top:-60px;right:-60px;width:140px;height:140px;background:radial-gradient(circle,rgba(178,223,219,0.12),transparent 70%);pointer-events:none}
+.card-pro:hover{transform:translateY(-5px);border-color:rgba(178,223,219,0.35);box-shadow:0 20px 60px rgba(0,0,0,0.3), 0 0 0 1px rgba(178,223,219,0.15), inset 0 1px 0 rgba(255,255,255,0.15);background:rgba(255,255,255,0.07)}
 .card-icon{font-size:38px;margin-bottom:18px;display:inline-block}
 .card-title{font-size:22px;font-weight:900;color:#fff;margin:0 0 10px}
 .card-text{margin:0;color:rgba(255,255,255,.72);line-height:1.95}
@@ -1404,15 +1625,31 @@ linear-gradient(160deg,#06101d 0%, #0a1628 35%, #0d2240 70%, #1a4a7a 100%)}
 .premium-strip b{color:#fff}
 #premium-fab{position:fixed;bottom:22px;right:22px;width:66px;height:66px;border-radius:50%;display:grid;place-items:center;background:linear-gradient(135deg,#25d366,#128c7e);color:#fff;font-size:28px;z-index:10000;box-shadow:0 14px 34px rgba(37,211,102,.34);text-decoration:none}
 #weather-pill{position:fixed;bottom:22px;left:22px;z-index:10000;background:rgba(255,255,255,.12);color:#fff;padding:12px 16px;border-radius:999px;font-weight:800;box-shadow:0 14px 34px rgba(0,0,0,.2);font-family:Tahoma,sans-serif;border:1px solid rgba(255,255,255,.18);backdrop-filter:blur(14px)}
-#removed-gallery{background:linear-gradient(180deg,#0d2240,#0a1628)}
+#removed-gallery{background:linear-gradient(180deg,#2D5F5D,#1a3533)}
 .gallery-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:14px;margin-top:22px}
 .gallery-grid img{width:100%;height:100%;min-height:220px;object-fit:cover;border-radius:22px;display:block;border:1px solid rgba(255,255,255,.10);box-shadow:0 18px 50px rgba(0,0,0,.18)}
 .gallery-grid .big{grid-row:span 2;min-height:454px}
 .premium-qa{margin-top:26px;display:grid;gap:12px}
-.qa-item{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.09);border-radius:18px;padding:18px 20px}
+.qa-item{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.14);border-radius:22px;padding:18px 20px;backdrop-filter:blur(24px) saturate(150%);-webkit-backdrop-filter:blur(24px) saturate(150%);box-shadow:inset 0 1px 0 rgba(255,255,255,0.2),0 4px 16px rgba(0,0,0,0.15);transition:background .25s ease,border-color .25s ease,box-shadow .25s ease;position:relative;overflow:hidden}
+.qa-item::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.4),transparent)}
+.qa-item:hover{background:rgba(255,255,255,0.09);border-color:rgba(255,255,255,0.2);box-shadow:inset 0 1px 0 rgba(255,255,255,0.28),0 6px 24px rgba(0,0,0,0.2)}
 .qa-q{display:flex;justify-content:space-between;align-items:center;gap:16px;cursor:pointer;font-weight:900;color:#fff}
 .qa-a{display:none;margin-top:10px;color:rgba(255,255,255,.74);line-height:1.95}
-.premium-footer{padding:34px 20px;border-top:1px solid rgba(255,255,255,.08);background:#07101d;color:rgba(255,255,255,.55);text-align:center}
+.premium-footer{padding:40px 20px 24px;border-top:1px solid rgba(255,255,255,.08);background:#0a1a18;color:rgba(255,255,255,.5);text-align:center}
+.footer-main{display:flex;flex-direction:column;align-items:center;gap:18px;max-width:700px;margin:0 auto}
+.footer-copy{display:flex;align-items:center;gap:10px;font-size:15px;color:rgba(255,255,255,.7);flex-wrap:wrap;justify-content:center}
+.footer-brand{color:#b8934a;font-weight:700;font-size:16px}
+.footer-sep{color:rgba(255,255,255,.25)}
+.footer-links{display:flex;align-items:center;gap:20px;flex-wrap:wrap;justify-content:center;margin-top:4px}
+.footer-phone{font-size:15px;color:rgba(255,255,255,.6);letter-spacing:.5px}
+.footer-fb{display:inline-flex;align-items:center;gap:8px;color:#fff;background:linear-gradient(135deg,#1877F2,#0c5fd6);padding:9px 20px;border-radius:50px;font-size:14px;font-weight:700;text-decoration:none;transition:transform .2s ease,box-shadow .2s ease;box-shadow:0 4px 18px rgba(24,119,242,.35)}
+.footer-fb:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(24,119,242,.55)}
+.footer-dev{margin-top:28px;font-size:12px;color:rgba(255,255,255,.2);letter-spacing:1.5px;padding-top:18px;border-top:1px solid rgba(255,255,255,.05)}
+.card-gold-touch{border-color:rgba(184,147,74,0.3)!important;box-shadow:0 8px 32px rgba(0,0,0,0.22),0 0 30px rgba(184,147,74,0.08),inset 0 1px 0 rgba(255,255,255,0.25),inset 0 -1px 0 rgba(255,255,255,0.06)!important}
+.card-gold-touch::after{background:radial-gradient(circle,rgba(184,147,74,0.15),transparent 70%)!important}
+.card-gold-touch:hover{border-color:rgba(184,147,74,0.5)!important;box-shadow:0 20px 60px rgba(0,0,0,0.3),0 0 40px rgba(184,147,74,0.15),inset 0 1px 0 rgba(255,255,255,0.15)!important}
+.card-price{font-family:'Amiri',serif;font-size:28px;font-weight:700;color:#F1E4C0;margin:10px 0 14px;line-height:1}
+.card-price-label{font-family:'Tajawal',sans-serif;font-size:13px;color:rgba(255,255,255,.45);font-weight:400}
 @media (max-width: 980px){.premium-metrics,.grid-pro,.gallery-grid{grid-template-columns:1fr 1fr}.gallery-grid .big{grid-row:auto;min-height:260px}}
 @media (max-width: 640px){#removed-topbar .wrap{flex-direction:column;align-items:flex-start}.premium-metrics,.grid-pro,.gallery-grid{grid-template-columns:1fr}.premium-title{font-size:clamp(34px,11vw,54px)}#premium-hero{margin-top:96px}.premium-strip{justify-content:flex-start}#premium-fab,#weather-pill{bottom:14px}}
 #premium-hero .premium-kicker.fade-in { transition-delay: 0.05s; }
@@ -1450,7 +1687,7 @@ linear-gradient(160deg,#06101d 0%, #0a1628 35%, #0d2240 70%, #1a4a7a 100%)}
   </div>
 </section>
 
-<section class="section-pro" style="background:#0d2240">
+<section class="section-pro" style="background:var(--navy)">
   <div class="section-inner">
     <div class="section-head fade-in">
       <div class="section-tag">Pricing & Trust</div>
@@ -1458,7 +1695,7 @@ linear-gradient(160deg,#06101d 0%, #0a1628 35%, #0d2240 70%, #1a4a7a 100%)}
       <p class="section-p">الشاليهات المميزه الوحيده ف القريه بلا منافس</p>
     </div>
     <div class="grid-pro">
-      <div class="card-pro fade-in">
+      <div class="card-pro card-gold-touch fade-in">
         <div class="card-tier">٢ غرفة</div>
         <div class="card-title">شاليه عائلي</div>
         <div class="card-text">مناسب لعائلة صغيرة، مطبخ مجهز، إطلالة مريحة، وسعر تنافسي.</div>
@@ -1469,9 +1706,9 @@ linear-gradient(160deg,#06101d 0%, #0a1628 35%, #0d2240 70%, #1a4a7a 100%)}
         </ul>
       </div>
 
-      <div class="card-pro card-featured fade-in">
+      <div class="card-pro card-featured card-gold-touch fade-in">
         <div class="card-badge">الأكثر طلباً</div>
-        <div class="card-tier" style="color:#00b4d8">٣ غرف</div>
+        <div class="card-tier" style="color:#B2DFDB">٣ غرف</div>
         <div class="card-title">شاليه فاخر</div>
         <div class="card-text">مناسب للعائلات الكبيرة، مساحة أوسع، وراحة أعلى وتجربة أكثر خصوصية.</div>
         <ul class="card-features">
@@ -1483,7 +1720,7 @@ linear-gradient(160deg,#06101d 0%, #0a1628 35%, #0d2240 70%, #1a4a7a 100%)}
 
       <div class="card-pro card-vip fade-in">
         <div class="card-badge card-badge-gold">VIP حصري</div>
-        <div class="card-tier" style="color:#f0c060">٤ غرف</div>
+        <div class="card-tier" style="color:#F1E4C0">٤ غرف</div>
         <div class="card-title">شاليه VIP</div>
         <div class="card-text">الشاليه الوحيد في القرية بتشطيب فاخر على أعلى مستوى، خامات ممتازة وتفاصيل داخلية متقنة.</div>
         <ul class="card-features">
@@ -1507,6 +1744,8 @@ linear-gradient(160deg,#06101d 0%, #0a1628 35%, #0d2240 70%, #1a4a7a 100%)}
       <div class="qa-item fade-in"><div class="qa-q"><span>هل الحجز بعربون؟ وإيه طرق الدفع؟</span><span>+</span></div><div class="qa-a">نعم، يتم تثبيت الحجز بعربون يعادل قيمة ليلة واحدة. طرق الدفع المتاحة هي InstaPay أو أي محفظة إلكترونية — سهل وسريع ومن غير أي تعقيد.</div></div>
       <div class="qa-item fade-in"><div class="qa-q"><span>هل المطبخ مجهز بالكامل؟</span><span>+</span></div><div class="qa-a">بالكامل! المطبخ مجهز بكل الأساسيات من معالق وسكاكين وحلل وأدوات الطهي — كل اللي محتاجه موجود. وتنبيه مهم: جميع البوتاجازات في القرية تعمل بالكهرباء لضمان أعلى معايير الأمان وتجنب أي مخاطر.</div></div>
       <div class="qa-item fade-in"><div class="qa-q"><span>هل ممكن إلغاء الحجز؟</span><span>+</span></div><div class="qa-a">نعم، الإلغاء متاح بشرط إخطارنا قبل موعد الحجز بأسبوع على الأقل. يُنصح بالتواصل المبكر لضمان استرداد العربون دون أي إشكاليات.</div></div>
+      <div class="qa-item fade-in"><div class="qa-q"><span>إيه هي مواعيد الدخول والخروج؟</span><span>+</span></div><div class="qa-a">التسليم والخروج: الساعة ١٠ صباحًا. الاستلام والدخول: من الساعة ١٢ ظهرًا حتى ٢ بعد الظهر.</div></div>
+      <div class="qa-item fade-in"><div class="qa-q"><span>هل السعر يشمل الخدمات زي الشاطئ وباص الشاطئ والأكوا؟</span><span>+</span></div><div class="qa-a">أيوه، السعر شامل كل الخدمات والدخول بكارنيه بتستلمه مع الشاليه. الكارنيه بتستخدمه لفتح بوابة العمارة الخاصة بيك. <strong>ملحوظة مهمة:</strong> الكارنيه عهدة لحين تسليم الشاليه — استخراج بدل فاقد قيمته ١٠٠٠ جنيه، الرجاء الحفاظ عليه.</div></div>
     </div>
   </div>
 </section>
@@ -1514,7 +1753,23 @@ linear-gradient(160deg,#06101d 0%, #0a1628 35%, #0d2240 70%, #1a4a7a 100%)}
 <a id="premium-fab" href="https://wa.me/201015753775?text=مرحبا،%20عايز%20احجز%20شاليه%20في%20بورتو%20مطروح" target="_blank" rel="noopener" aria-label="واتساب">✆</a>
 <div id="weather-pill">جاري تحميل الطقس...</div>
 
-<footer class="premium-footer fade-in">© 2026 Porto Matrouh. Premium beachfront experience.</footer>
+<footer class="premium-footer fade-in">
+  <div class="footer-main">
+    <div class="footer-copy">
+      <span>جميع الحقوق محفوظة</span>
+      <span class="footer-sep">·</span>
+      <span class="footer-brand">شاليهات هشام العبد</span>
+    </div>
+    <div class="footer-links">
+      <span class="footer-phone">📞 01015753775</span>
+      <a class="footer-fb" href="https://www.facebook.com/profile.php?id=61576628720268" target="_blank" rel="noopener" aria-label="فيسبوك">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+        تابعنا على فيسبوك
+      </a>
+    </div>
+  </div>
+  <div class="footer-dev">developed by eldabb3 projects</div>
+</footer>
 
 <script>
 (function(){
@@ -1608,9 +1863,9 @@ function initStars(canvasId) {
       twinkleSpeed: Math.random() * 0.02 + 0.005,
       twinkleDir: Math.random() > 0.5 ? 1 : -1,
       color: Math.random() > 0.85
-        ? `rgba(240,192,96,`   // gold stars
+        ? `rgba(241,228,192,`   // gold stars
         : Math.random() > 0.6
-          ? `rgba(0,180,216,`  // turq stars
+          ? `rgba(178,223,219,`  // turq stars
           : `rgba(255,255,255,` // white stars
     };
   }
@@ -1664,6 +1919,57 @@ function initStars(canvasId) {
 
 initStars('starsCanvas');
 initStars('starsCanvas2');
+</script>
+
+<script>
+// ===== GUIDE TABS =====
+function switchGuideTab(btn, panelId) {
+  document.querySelectorAll('.guide-tab').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.guide-panel').forEach(p => p.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById('guide-' + panelId).classList.add('active');
+}
+
+// ===== GUIDE SLIDERS =====
+const guideSliderState = {};
+
+function getSliderState(id) {
+  if (!guideSliderState[id]) {
+    const el = document.getElementById(id);
+    const total = el.querySelectorAll('.guide-slide').length;
+    guideSliderState[id] = { current: 0, total };
+  }
+  return guideSliderState[id];
+}
+
+function updateGuideSlider(id) {
+  const state = guideSliderState[id];
+  const el = document.getElementById(id);
+  el.querySelector('.guide-slides').style.transform = `translateX(${state.current * 100}%)`;
+  const dots = document.querySelectorAll(`#dots-${id} .guide-dot`);
+  dots.forEach((d, i) => d.classList.toggle('active', i === state.current));
+}
+
+function slideGuide(id, dir) {
+  const state = getSliderState(id);
+  state.current = (state.current - dir + state.total) % state.total;
+  updateGuideSlider(id);
+}
+
+function goGuideSlide(id, idx) {
+  const state = getSliderState(id);
+  state.current = idx;
+  updateGuideSlider(id);
+}
+
+// Init all sliders
+document.querySelectorAll('.guide-slider').forEach(s => getSliderState(s.id));
+
+// ===== HORIZONTAL ROW SCROLL =====
+function scrollGuideRow(gridId, dir) {
+  const el = document.getElementById(gridId);
+  el.scrollBy({ left: dir * 320, behavior: 'smooth' });
+}
 </script>
 
 </body>
