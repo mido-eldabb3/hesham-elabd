@@ -4,6 +4,18 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>شاليهات هشام العبد | بورتو مطروح</title>
+
+<!-- Open Graph - للمشاركة على واتساب وفيسبوك -->
+<meta property="og:title" content="شاليهات هشام العبد | بورتو مطروح" />
+<meta property="og:description" content="إقامة فاخرة على شاطئ المتوسط في بورتو مطروح — شاليهات مجهزة بالكامل، خدمات متكاملة، على بُعد ٥ دقائق من البحر. احجز الآن!" />
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="ar_EG" />
+<meta property="og:site_name" content="شاليهات هشام العبد" />
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="شاليهات هشام العبد | بورتو مطروح" />
+<meta name="twitter:description" content="إقامة فاخرة على شاطئ المتوسط في بورتو مطروح — احجز الآن!" />
 <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800;900&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
 <style>
   :root {
@@ -695,11 +707,17 @@
     opacity: 0;
     transform: translateY(30px);
     transition: all 0.7s ease;
+    animation: fadeInFallback 0.8s ease 0.3s both;
+  }
+
+  @keyframes fadeInFallback {
+    to { opacity: 1; transform: translateY(0); }
   }
 
   .fade-in.visible {
     opacity: 1;
     transform: translateY(0);
+    animation: none;
   }
 
   /* ===== SCROLL PROGRESS BAR ===== */
@@ -725,14 +743,14 @@
   nav {
     position: fixed;
     top: 0; left: 0; right: 0;
-    z-index: 100;
+    z-index: 199;
     padding: 20px 40px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: rgba(10,22,40,0.85);
+    background: rgba(26, 53, 51, 0.92);
     backdrop-filter: blur(20px);
-    border-bottom: 1px solid rgba(255,255,255,0.06);
+    border-bottom: 1px solid rgba(178, 223, 219, 0.12);
     transition: all 0.3s ease;
   }
 
@@ -758,9 +776,92 @@
 
   .nav-links a:hover { color: var(--white); }
 
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 36px;
+    height: 36px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    outline: none;
+    gap: 5px;
+    flex-shrink: 0;
+    position: relative;
+    z-index: 200;
+  }
+  .hamburger span {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background: var(--gold);
+    border-radius: 2px;
+    transition: all 0.3s ease;
+    transform-origin: center;
+  }
+  .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+  .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
   @media (max-width: 600px) {
     nav { padding: 16px 20px; }
-    .nav-links { display: none; }
+    .hamburger { display: flex; }
+
+    .nav-links {
+      display: flex;
+      flex-direction: column;
+      position: fixed;
+      top: 61px;
+      left: 0; right: 0;
+      background: linear-gradient(180deg, rgba(15,37,35,0.99) 0%, rgba(26,53,51,0.99) 100%);
+      backdrop-filter: blur(30px);
+      -webkit-backdrop-filter: blur(30px);
+      border-bottom: 2px solid rgba(184,147,74,0.25);
+      z-index: 98;
+      gap: 0;
+      padding: 8px 0 16px;
+      /* hidden by default */
+      opacity: 0;
+      transform: translateY(-10px);
+      pointer-events: none;
+      transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+    .nav-links.open {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: all;
+    }
+    .nav-links li {
+      border: none;
+      border-bottom: 1px solid rgba(178,223,219,0.07);
+    }
+    .nav-links li:last-child { border-bottom: none; }
+    .nav-links a {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 15px 24px;
+      font-size: 17px;
+      font-weight: 600;
+      color: rgba(255,255,255,0.8);
+      transition: color 0.2s, background 0.2s, padding-right 0.2s;
+    }
+    .nav-links a::before {
+      content: '✦';
+      font-size: 8px;
+      color: var(--gold);
+      opacity: 0;
+      transition: opacity 0.2s;
+    }
+    .nav-links a:hover {
+      color: var(--gold);
+      background: rgba(184,147,74,0.07);
+      padding-right: 30px;
+    }
+    .nav-links a:hover::before { opacity: 1; }
+
     section { padding: 70px 20px; }
     .features-wrap, .pricing-wrap, .contact-wrap { padding: 70px 20px; }
     .stats { gap: 30px; padding: 40px 20px; }
@@ -1202,12 +1303,15 @@
 <!-- NAV -->
 <nav>
   <div class="nav-brand">شاليهات هشام العبد</div>
-  <ul class="nav-links">
+  <button class="hamburger" id="hamburger" aria-label="القائمة">
+    <span></span><span></span><span></span>
+  </button>
+  <ul class="nav-links" id="nav-links">
     <li><a href="#features">المميزات</a></li>
     <li><a href="#gallery">الصور</a></li>
     <li><a href="#pricing">الأسعار</a></li>
-    <li><a href="#guide">دليل مطروح</a></li>
-    <li><a href="#location">الموقع</a></li>
+    <li><a href="#premium-faq">الأسئلة الشائعة</a></li>
+    <li><a href="#location-sec">الموقع</a></li>
     <li><a href="#contact">تواصل معنا</a></li>
   </ul>
 </nav>
@@ -1508,6 +1612,21 @@
     if (e.target === this) closeLightbox();
   });
 
+  // Hamburger menu
+  const hamburger = document.getElementById('hamburger');
+  const navLinks = document.getElementById('nav-links');
+  hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('open');
+    navLinks.classList.toggle('open');
+  });
+  navLinks.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => {
+      hamburger.classList.remove('open');
+      navLinks.classList.remove('open');
+    });
+  });
+  document.querySelectorAll('.fade-in').forEach(el => el.classList.add('visible'));
+
   // Scroll fade-in
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry, i) => {
@@ -1624,7 +1743,55 @@ linear-gradient(160deg,#0f2220 0%, #1a3533 35%, #2D5F5D 70%, #3d7a77 100%)}
 .premium-strip{margin-top:18px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.09);border-radius:20px;padding:16px 18px;display:flex;gap:16px;flex-wrap:wrap;justify-content:center;color:rgba(255,255,255,.76)}
 .premium-strip b{color:#fff}
 #premium-fab{position:fixed;bottom:22px;right:22px;width:66px;height:66px;border-radius:50%;display:grid;place-items:center;background:linear-gradient(135deg,#25d366,#128c7e);color:#fff;font-size:28px;z-index:10000;box-shadow:0 14px 34px rgba(37,211,102,.34);text-decoration:none}
-#weather-pill{position:fixed;bottom:22px;left:22px;z-index:10000;background:rgba(255,255,255,.12);color:#fff;padding:12px 16px;border-radius:999px;font-weight:800;box-shadow:0 14px 34px rgba(0,0,0,.2);font-family:Tahoma,sans-serif;border:1px solid rgba(255,255,255,.18);backdrop-filter:blur(14px)}
+/* Bottom bar: weather + book button */
+#bottom-bar {
+  position: fixed;
+  bottom: 22px;
+  left: 22px;
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+#weather-pill {
+  background: rgba(255,255,255,.12);
+  color: #fff;
+  padding: 12px 16px;
+  border-radius: 999px;
+  font-weight: 800;
+  box-shadow: 0 14px 34px rgba(0,0,0,.2);
+  font-family: Tahoma, sans-serif;
+  border: 1px solid rgba(255,255,255,.18);
+  backdrop-filter: blur(14px);
+  white-space: nowrap;
+}
+#book-now-btn {
+  background: linear-gradient(135deg, var(--gold), #d4a85a);
+  color: #1a1a1a;
+  padding: 12px 20px;
+  border-radius: 999px;
+  font-weight: 900;
+  font-size: 14px;
+  font-family: 'Tajawal', sans-serif;
+  text-decoration: none;
+  box-shadow: 0 8px 24px rgba(184,147,74,.45);
+  border: none;
+  white-space: nowrap;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+#book-now-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(184,147,74,.6);
+}
+@media (max-width: 640px) {
+  #bottom-bar { bottom: 14px; left: 12px; gap: 8px; }
+  #book-now-btn { padding: 10px 14px; font-size: 13px; }
+  #weather-pill { padding: 10px 13px; font-size: 13px; }
+  #premium-fab { bottom: 14px; }
+}
 #removed-gallery{background:linear-gradient(180deg,#2D5F5D,#1a3533)}
 .gallery-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:14px;margin-top:22px}
 .gallery-grid img{width:100%;height:100%;min-height:220px;object-fit:cover;border-radius:22px;display:block;border:1px solid rgba(255,255,255,.10);box-shadow:0 18px 50px rgba(0,0,0,.18)}
@@ -1651,7 +1818,7 @@ linear-gradient(160deg,#0f2220 0%, #1a3533 35%, #2D5F5D 70%, #3d7a77 100%)}
 .card-price{font-family:'Amiri',serif;font-size:28px;font-weight:700;color:#F1E4C0;margin:10px 0 14px;line-height:1}
 .card-price-label{font-family:'Tajawal',sans-serif;font-size:13px;color:rgba(255,255,255,.45);font-weight:400}
 @media (max-width: 980px){.premium-metrics,.grid-pro,.gallery-grid{grid-template-columns:1fr 1fr}.gallery-grid .big{grid-row:auto;min-height:260px}}
-@media (max-width: 640px){#removed-topbar .wrap{flex-direction:column;align-items:flex-start}.premium-metrics,.grid-pro,.gallery-grid{grid-template-columns:1fr}.premium-title{font-size:clamp(34px,11vw,54px)}#premium-hero{margin-top:96px}.premium-strip{justify-content:flex-start}#premium-fab,#weather-pill{bottom:14px}}
+@media (max-width: 640px){#removed-topbar .wrap{flex-direction:column;align-items:flex-start}.premium-metrics,.grid-pro,.gallery-grid{grid-template-columns:1fr}.premium-title{font-size:clamp(34px,11vw,54px)}#premium-hero{margin-top:96px}.premium-strip{justify-content:flex-start}#premium-fab{bottom:14px}}
 #premium-hero .premium-kicker.fade-in { transition-delay: 0.05s; }
 #premium-hero .premium-title.fade-in  { transition-delay: 0.15s; }
 #premium-hero .premium-sub.fade-in    { transition-delay: 0.25s; }
@@ -1663,8 +1830,21 @@ linear-gradient(160deg,#0f2220 0%, #1a3533 35%, #2D5F5D 70%, #3d7a77 100%)}
 .grid-pro .card-pro.fade-in:nth-child(3){ transition-delay: 0.25s; }
 .grid-pro .card-pro.fade-in:nth-child(4){ transition-delay: 0.35s; }
 .premium-qa .qa-item.fade-in:nth-child(1){ transition-delay: 0.05s; }
-.premium-qa .qa-item.fade-in:nth-child(2){ transition-delay: 0.15s; }
-.premium-qa .qa-item.fade-in:nth-child(3){ transition-delay: 0.25s; }
+.premium-qa .qa-item.fade-in:nth-child(2){ transition-delay: 0.12s; }
+.premium-qa .qa-item.fade-in:nth-child(3){ transition-delay: 0.19s; }
+.premium-qa .qa-item.fade-in:nth-child(4){ transition-delay: 0.26s; }
+.premium-qa .qa-item.fade-in:nth-child(5){ transition-delay: 0.33s; }
+.premium-qa .qa-item.fade-in:nth-child(6){ transition-delay: 0.40s; }
+.premium-qa .qa-item.fade-in:nth-child(7){ transition-delay: 0.47s; }
+.premium-qa .qa-item.fade-in:nth-child(8){ transition-delay: 0.54s; }
+.premium-qa .qa-item.fade-in:nth-child(9){ transition-delay: 0.61s; }
+@keyframes qaSlideDown {
+  from { opacity:0; transform:translateY(-8px); }
+  to   { opacity:1; transform:translateY(0); }
+}
+.qa-item.open .qa-a { animation: qaSlideDown 0.3s ease forwards; }
+.qa-q span:last-child { transition: transform 0.3s ease; display:inline-block; font-size:20px; color:var(--gold); }
+.qa-item.open .qa-q span:last-child { transform: rotate(45deg); }
 </style>
 
 <section id="premium-hero">
@@ -1735,8 +1915,241 @@ linear-gradient(160deg,#0f2220 0%, #1a3533 35%, #2D5F5D 70%, #3d7a77 100%)}
       <p class="cta-contact-text">جاهز تحجز؟ تواصل معنا الآن مباشرة</p>
       <a class="pbtn primary" href="https://wa.me/201015753775?text=مرحبا،%20عايز%20احجز%20شاليه%20في%20بورتو%20مطروح" target="_blank" rel="noopener">احجز واتساب الآن</a>
     </div>
+  </div>
+</section>
 
-          <div id="premium-faq" class="premium-qa">
+<!-- ===== LOCATION SECTION ===== -->
+<style>
+#location-sec {
+  background: linear-gradient(180deg, #0d1f1d 0%, #1a3533 100%);
+  padding: 80px 20px !important;
+  max-width: 100% !important;
+  margin: 0 !important;
+}
+#location-sec .loc-inner { max-width: 1200px; margin: 0 auto; }
+#location-sec .loc-head { text-align: center; margin-bottom: 52px; }
+#location-sec .loc-tag {
+  color: #B2DFDB; font-size: 12px; font-weight: 800;
+  letter-spacing: 3px; text-transform: uppercase; margin-bottom: 12px;
+}
+#location-sec .loc-title {
+  font-family: 'Amiri', serif;
+  font-size: clamp(28px, 4vw, 48px);
+  font-weight: 700; color: #fff; margin: 0 0 12px;
+}
+#location-sec .loc-title span { color: #b8934a; }
+#location-sec .loc-sub { color: rgba(255,255,255,.6); font-size: 16px; margin: 0; }
+
+/* distances row */
+#location-sec .loc-distances {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+  margin-bottom: 40px;
+}
+#location-sec .dist-card {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(178,223,219,0.15);
+  border-radius: 18px;
+  padding: 20px 16px;
+  text-align: center;
+  transition: background .25s, border-color .25s, transform .25s;
+}
+#location-sec .dist-card:hover {
+  background: rgba(178,223,219,0.09);
+  border-color: rgba(178,223,219,0.35);
+  transform: translateY(-3px);
+}
+#location-sec .dist-icon { font-size: 28px; margin-bottom: 10px; display: block; }
+#location-sec .dist-from { font-size: 13px; font-weight: 800; color: #B2DFDB; margin-bottom: 6px; }
+#location-sec .dist-km {
+  font-family: 'Amiri', serif;
+  font-size: 26px; font-weight: 700; color: #F1E4C0; line-height: 1;
+}
+#location-sec .dist-time { font-size: 12px; color: rgba(255,255,255,.5); margin-top: 4px; }
+
+/* main grid */
+#location-sec .loc-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.4fr;
+  gap: 32px;
+  align-items: start;
+}
+#location-sec .loc-pins { display: flex; flex-direction: column; gap: 14px; }
+#location-sec .loc-pin {
+  display: flex; align-items: flex-start; gap: 14px;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(178,223,219,0.15);
+  border-radius: 16px; padding: 18px 20px;
+  transition: background .25s, border-color .25s;
+}
+#location-sec .loc-pin:hover {
+  background: rgba(178,223,219,0.08);
+  border-color: rgba(178,223,219,0.35);
+}
+#location-sec .loc-pin-icon { font-size: 24px; flex-shrink: 0; margin-top: 2px; }
+#location-sec .loc-pin-title { font-size: 14px; font-weight: 800; color: #B2DFDB; margin-bottom: 4px; }
+#location-sec .loc-pin-text { font-size: 14px; color: rgba(255,255,255,.65); line-height: 1.7; margin: 0; }
+
+/* map wrapper — clickable link */
+#location-sec .loc-map-wrap {
+  display: block;
+  position: relative;
+  height: 440px;
+  border-radius: 22px;
+  overflow: hidden;
+  border: 2px solid rgba(178,223,219,0.2);
+  box-shadow: 0 12px 40px rgba(0,0,0,.45);
+  text-decoration: none;
+  cursor: pointer;
+}
+#location-sec .loc-map-wrap iframe {
+  width: 100%; height: 100%; border: 0; display: block;
+  pointer-events: none; /* clicks go to the <a> wrapper */
+}
+#location-sec .loc-map-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0);
+  transition: background .3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#location-sec .loc-map-wrap:hover .loc-map-overlay {
+  background: rgba(0,0,0,0.35);
+}
+#location-sec .loc-map-btn {
+  background: linear-gradient(135deg, #b8934a, #F1E4C0);
+  color: #1a3533;
+  font-family: 'Tajawal', sans-serif;
+  font-size: 15px;
+  font-weight: 800;
+  padding: 14px 28px;
+  border-radius: 50px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity .3s, transform .3s;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+  white-space: nowrap;
+}
+#location-sec .loc-map-wrap:hover .loc-map-btn {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (max-width: 900px) {
+  #location-sec .loc-distances { grid-template-columns: repeat(2, 1fr); }
+  #location-sec .loc-grid { grid-template-columns: 1fr; }
+  #location-sec .loc-map-wrap { height: 300px; }
+  #location-sec { padding: 60px 20px; }
+}
+@media (max-width: 480px) {
+  #location-sec .loc-distances { grid-template-columns: repeat(2, 1fr); }
+}
+</style>
+
+<section id="location-sec">
+  <div class="loc-inner">
+    <div class="loc-head fade-in">
+      <div class="loc-tag">الموقع</div>
+      <h2 class="loc-title">بورتو مطروح · <span>إزاي توصلنا؟</span></h2>
+      <p class="loc-sub">القرية في قلب مطروح — على بُعد خطوات من البحر وكل الخدمات</p>
+    </div>
+
+    <!-- distances -->
+    <div class="loc-distances fade-in">
+      <div class="dist-card">
+        <span class="dist-icon">🚗</span>
+        <div class="dist-from">من القاهرة</div>
+        <div class="dist-km">٥١٠ كم</div>
+        <div class="dist-time">≈ ٥ ساعات</div>
+      </div>
+      <div class="dist-card">
+        <span class="dist-icon">🚗</span>
+        <div class="dist-from">من الإسكندرية</div>
+        <div class="dist-km">٢٩٠ كم</div>
+        <div class="dist-time">≈ ٣ ساعات</div>
+      </div>
+      <div class="dist-card">
+        <span class="dist-icon">🚗</span>
+        <div class="dist-from">من العلمين</div>
+        <div class="dist-km">١٧٠ كم</div>
+        <div class="dist-time">≈ ١.٥ ساعة</div>
+      </div>
+      <div class="dist-card">
+        <span class="dist-icon">🏖️</span>
+        <div class="dist-from">من الشاليه للبحر</div>
+        <div class="dist-km">٥ دقائق</div>
+        <div class="dist-time">مشياً على الأقدام</div>
+      </div>
+    </div>
+
+    <div class="loc-grid">
+      <div class="loc-pins">
+        <div class="loc-pin fade-in">
+          <div class="loc-pin-icon">📍</div>
+          <div>
+            <div class="loc-pin-title">العنوان</div>
+            <p class="loc-pin-text">بورتو مطروح — مرسى مطروح، الساحل الشمالي الغربي، مصر</p>
+          </div>
+        </div>
+        <div class="loc-pin fade-in">
+          <div class="loc-pin-icon">🛣️</div>
+          <div>
+            <div class="loc-pin-title">الطريق</div>
+            <p class="loc-pin-text">طريق القاهرة–الإسكندرية الصحراوي ثم الساحلي — طريق ممتاز ومريح طول الرحلة</p>
+          </div>
+        </div>
+        <div class="loc-pin fade-in">
+          <div class="loc-pin-icon">🛒</div>
+          <div>
+            <div class="loc-pin-title">الخدمات المحيطة</div>
+            <p class="loc-pin-text">سوبرماركت، مطاعم، صيدليات — كل حاجة على بُعد دقائق</p>
+          </div>
+        </div>
+        <div class="loc-pin fade-in">
+          <div class="loc-pin-icon">🅿️</div>
+          <div>
+            <div class="loc-pin-title">موقف سيارات</div>
+            <p class="loc-pin-text">موقف خاص ومجاني لجميع ضيوف الشاليهات — بدون أي رسوم</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- map clickable -->
+      <a class="loc-map-wrap fade-in"
+         href="https://maps.app.goo.gl/ippfqZ57HPPCYLfe7"
+         target="_blank"
+         rel="noopener"
+         title="افتح في جوجل مابس">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3419.642!2d27.2373!3d31.3547!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x145f6f66347f9a1b%3A0x7d6f5f6f6f6f6f6f!2sPorto%20Matrouh!5e0!3m2!1sar!2seg!4v1713980000000!5m2!1sar!2seg"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+        <div class="loc-map-overlay">
+          <div class="loc-map-btn">
+            📍 افتح في جوجل مابس
+          </div>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FAQ SECTION ===== -->
+<section class="section-pro" style="background:var(--navy)">
+  <div class="section-inner">
+    <div class="section-head fade-in">
+      <div class="section-tag">FAQ</div>
+      <h2 class="section-h2">الأسئلة الشائعة</h2>
+    </div>
+    <div id="premium-faq" class="premium-qa">
       <div class="qa-item fade-in"><div class="qa-q"><span>متى يبدأ الموسم؟</span><span>+</span></div><div class="qa-a">الموسم يبدأ أواخر مايو، والحجز المسبق متاح قبلها مع أولوية في الاختيار.</div></div>
       <div class="qa-item fade-in"><div class="qa-q"><span>إيه اللي يميز الشاليه؟</span><span>+</span></div><div class="qa-a">تصميم مريح، خدمات مناسبة للعائلات، وموقع يخدم الراحة والهدوء والقرب من الخدمات.</div></div>
       <div class="qa-item fade-in"><div class="qa-q"><span>أحجز إزاي؟</span><span>+</span></div><div class="qa-a">اضغط زر واتساب الثابت أو زر الحجز في أعلى الصفحة، وهيتم التواصل فورًا.</div></div>
@@ -1750,10 +2163,16 @@ linear-gradient(160deg,#0f2220 0%, #1a3533 35%, #2D5F5D 70%, #3d7a77 100%)}
   </div>
 </section>
 
-<a id="premium-fab" href="https://wa.me/201015753775?text=مرحبا،%20عايز%20احجز%20شاليه%20في%20بورتو%20مطروح" target="_blank" rel="noopener" aria-label="واتساب">✆</a>
-<div id="weather-pill">جاري تحميل الطقس...</div>
+<a id="premium-fab" href="https://wa.me/201015753775?text=مرحبا،%20عايز%20احجز%20شاليه%20في%20بورتو%20مطروح" target="_blank" rel="noopener" aria-label="واتساب">
+  <svg xmlns="http://www.w3.org/2000/svg" width="34" height="34" viewBox="0 0 24 24" fill="#ffffff">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+  </svg>
+</a>
+<div id="bottom-bar">
+  <div id="weather-pill">جاري تحميل الطقس...</div>
+</div>
 
-<footer class="premium-footer fade-in">
+<footer id="contact" class="premium-footer fade-in">
   <div class="footer-main">
     <div class="footer-copy">
       <span>جميع الحقوق محفوظة</span>
@@ -1787,7 +2206,17 @@ linear-gradient(160deg,#0f2220 0%, #1a3533 35%, #2D5F5D 70%, #3d7a77 100%)}
   document.querySelectorAll('.qa-item').forEach(item=>{
     item.addEventListener('click',()=>{
       const a = item.querySelector('.qa-a');
-      a.style.display = a.style.display === 'block' ? 'none' : 'block';
+      const isOpen = item.classList.contains('open');
+      // close all
+      document.querySelectorAll('.qa-item').forEach(i=>{
+        i.classList.remove('open');
+        i.querySelector('.qa-a').style.display = 'none';
+      });
+      // toggle clicked
+      if(!isOpen){
+        item.classList.add('open');
+        a.style.display = 'block';
+      }
     });
   });
 
