@@ -15,7 +15,10 @@
 <!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="شاليهات هشام العبد | بورتو مطروح" />
-<meta name="twitter:description" content="إقامة فاخرة على شاطئ المتوسط في بورتو مطروح — احجز الآن!" />
+<meta property="og:image" content="https://i.ibb.co/qYSyyHj5/1000050053.jpg" />
+<meta property="og:image:width" content="1080" />
+<meta property="og:image:height" content="1080" />
+<meta name="twitter:image" content="https://i.ibb.co/qYSyyHj5/1000050053.jpg" />
 <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800;900&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
 <style>
   :root {
@@ -1310,6 +1313,7 @@
     <li><a href="#features">المميزات</a></li>
     <li><a href="#gallery">الصور</a></li>
     <li><a href="#pricing">الأسعار</a></li>
+    <li><a href="#reviews-sec">آراء العملاء</a></li>
     <li><a href="#premium-faq">الأسئلة الشائعة</a></li>
     <li><a href="#location-sec">الموقع</a></li>
     <li><a href="#contact">تواصل معنا</a></li>
@@ -1612,7 +1616,23 @@
     if (e.target === this) closeLightbox();
   });
 
-  // Hamburger menu
+  // Share website
+  function shareWebsite() {
+    const shareData = {
+      title: 'شاليهات هشام العبد | بورتو مطروح',
+      text: 'إقامة فاخرة على شاطئ المتوسط — شاليهات مجهزة بالكامل في بورتو مطروح 🏖️',
+      url: window.location.href
+    };
+    if (navigator.share) {
+      navigator.share(shareData);
+    } else {
+      navigator.clipboard.writeText(window.location.href).then(() => {
+        const btn = document.getElementById('share-btn');
+        btn.textContent = '✅ تم النسخ!';
+        setTimeout(() => btn.innerHTML = '🔗 شارك الموقع', 2000);
+      });
+    }
+  }
   const hamburger = document.getElementById('hamburger');
   const navLinks = document.getElementById('nav-links');
   hamburger.addEventListener('click', () => {
@@ -2142,6 +2162,287 @@ linear-gradient(160deg,#0f2220 0%, #1a3533 35%, #2D5F5D 70%, #3d7a77 100%)}
   </div>
 </section>
 
+<!-- ===== REVIEWS SECTION ===== -->
+<style>
+#reviews-sec {
+  background: linear-gradient(180deg, #0f2321 0%, #1a3533 100%);
+  padding: 80px 20px !important;
+  max-width: 100% !important;
+  margin: 0 !important;
+}
+#reviews-sec .rev-inner { max-width: 1200px; margin: 0 auto; }
+#reviews-sec .rev-head { text-align: center; margin-bottom: 20px; }
+#reviews-sec .rev-tag {
+  color: #B2DFDB; font-size: 12px; font-weight: 800;
+  letter-spacing: 3px; text-transform: uppercase; margin-bottom: 12px;
+}
+#reviews-sec .rev-title {
+  font-family: 'Amiri', serif;
+  font-size: clamp(26px, 4vw, 44px);
+  font-weight: 700; color: #fff; margin: 0 0 10px;
+}
+#reviews-sec .rev-title span { color: #b8934a; }
+#reviews-sec .rev-summary {
+  display: flex; align-items: center; justify-content: center;
+  gap: 12px; margin-bottom: 48px;
+}
+#reviews-sec .rev-score {
+  font-family: 'Amiri', serif;
+  font-size: 52px; font-weight: 700;
+  color: #b8934a; line-height: 1;
+}
+#reviews-sec .rev-stars { font-size: 22px; color: #f5c518; letter-spacing: 2px; }
+#reviews-sec .rev-count { font-size: 14px; color: rgba(255,255,255,.5); margin-top: 4px; }
+
+/* Carousel */
+#reviews-sec .rev-carousel-wrap { position: relative; }
+#reviews-sec .rev-carousel {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+#reviews-sec .rev-card {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(178,223,219,0.12);
+  border-radius: 20px;
+  padding: 24px 22px;
+  transition: border-color .3s, transform .3s, background .3s;
+  display: flex; flex-direction: column; gap: 14px;
+}
+#reviews-sec .rev-card:hover {
+  border-color: rgba(184,147,74,0.35);
+  background: rgba(255,255,255,0.07);
+  transform: translateY(-4px);
+}
+#reviews-sec .rev-card-top {
+  display: flex; align-items: center; gap: 12px;
+}
+#reviews-sec .rev-avatar {
+  width: 44px; height: 44px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 18px; font-weight: 800; color: #1a3533;
+  flex-shrink: 0; font-family: 'Tajawal', sans-serif;
+}
+#reviews-sec .rev-name {
+  font-size: 15px; font-weight: 800; color: #fff; margin-bottom: 2px;
+}
+#reviews-sec .rev-date { font-size: 12px; color: rgba(255,255,255,.4); }
+#reviews-sec .rev-stars-sm { font-size: 14px; color: #f5c518; letter-spacing: 1px; }
+#reviews-sec .rev-text {
+  font-size: 14px; color: rgba(255,255,255,.72);
+  line-height: 1.85; flex: 1;
+}
+#reviews-sec .rev-google {
+  display: flex; align-items: center; gap: 6px;
+  font-size: 11px; color: rgba(255,255,255,.3);
+}
+#reviews-sec .rev-cta {
+  text-align: center; margin-top: 40px;
+}
+#reviews-sec .rev-cta a {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: rgba(178,223,219,0.1);
+  border: 1px solid rgba(178,223,219,0.25);
+  color: #B2DFDB;
+  padding: 13px 28px; border-radius: 999px;
+  font-size: 15px; font-weight: 700;
+  text-decoration: none;
+  transition: background .25s, border-color .25s, transform .25s;
+}
+#reviews-sec .rev-cta a:hover {
+  background: rgba(178,223,219,0.18);
+  border-color: rgba(178,223,219,0.5);
+  transform: translateY(-2px);
+}
+@media (max-width: 900px) {
+  #reviews-sec .rev-carousel { grid-template-columns: repeat(2,1fr); }
+}
+@media (max-width: 560px) {
+  #reviews-sec .rev-carousel { grid-template-columns: 1fr; }
+  #reviews-sec { padding: 60px 20px !important; }
+}
+</style>
+
+<section id="reviews-sec">
+  <div class="rev-inner">
+    <div class="rev-head fade-in">
+      <div class="rev-tag">آراء العملاء</div>
+      <h2 class="rev-title">ماذا قالوا عن <span>تجربتهم؟</span></h2>
+    </div>
+    <div class="rev-summary fade-in">
+      <div class="rev-score">5.0</div>
+      <div>
+        <div class="rev-stars">★★★★★</div>
+        <div class="rev-count">تقييم على Google Maps</div>
+      </div>
+    </div>
+
+    <div class="rev-carousel">
+
+      <!-- 1 - Waloii -->
+      <div class="rev-card fade-in">
+        <div class="rev-card-top">
+          <div class="rev-avatar" style="background:linear-gradient(135deg,#b8934a,#F1E4C0)">W</div>
+          <div>
+            <div class="rev-name">Waloii</div>
+            <div class="rev-date">Local Guide · منذ ٨ أشهر</div>
+          </div>
+        </div>
+        <div class="rev-stars-sm">★★★★★</div>
+        <p class="rev-text">المكان امان جداً حيوي كله ناس واطفال وجمبييل والاهم نظيييف، استاذ هشام في منتهى الذوق والتعامل المحترم شكراً على الكرم والضيافة 🙏🙏🙏</p>
+        <div class="rev-google">
+          <svg width="14" height="14" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+          Google Maps
+        </div>
+      </div>
+
+      <!-- 2 - Mosatafa Osman -->
+      <div class="rev-card fade-in">
+        <div class="rev-card-top">
+          <div class="rev-avatar" style="background:linear-gradient(135deg,#26a69a,#B2DFDB)">M</div>
+          <div>
+            <div class="rev-name">Mosatafa Osman</div>
+            <div class="rev-date">منذ ٩ أشهر</div>
+          </div>
+        </div>
+        <div class="rev-stars-sm">★★★★★</div>
+        <p class="rev-text">حقيقى من اكتر الناس الصادقة في الكلام والأمانة في الوعود. كل حاجه في الصور كانت على الواقع. تسلم يا مستر هشام على ذوقك ومتابعتك كمان بعد الاستلام شاليه 🙏</p>
+        <div class="rev-google">
+          <svg width="14" height="14" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+          Google Maps
+        </div>
+      </div>
+
+      <!-- 3 - Mohamed Hosni -->
+      <div class="rev-card fade-in">
+        <div class="rev-card-top">
+          <div class="rev-avatar" style="background:linear-gradient(135deg,#b8934a,#8a6a30)">MH</div>
+          <div>
+            <div class="rev-name">Mohamed Hosni</div>
+            <div class="rev-date">Local Guide · منذ ٨ أشهر</div>
+          </div>
+        </div>
+        <div class="rev-stars-sm">★★★★★</div>
+        <p class="rev-text">من اول تعامل مع هشام المحترم وانت حاترتاح وتنبسط.. شخصية محترمة جداً وبيساعد لاقصى درجة. ديه تانى سنة معاه وشاليهاته جميله ونظيفة والتجربة في بورتو بجد حلوة جداً 😊 وعقبال كل سنة</p>
+        <div class="rev-google">
+          <svg width="14" height="14" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+          Google Maps
+        </div>
+      </div>
+
+      <!-- 4 - Лідія Колодій -->
+      <div class="rev-card fade-in">
+        <div class="rev-card-top">
+          <div class="rev-avatar" style="background:linear-gradient(135deg,#5c7a9e,#b2c9e0)">L</div>
+          <div>
+            <div class="rev-name">Лідія Колодій</div>
+            <div class="rev-date">منذ سنة</div>
+          </div>
+        </div>
+        <div class="rev-stars-sm">★★★★★</div>
+        <p class="rev-text">With our large family of five, Porto Matrouh was the perfect option. The chalets were spacious and well maintained. The beach was just a few steps away and the calm, clear water was perfect for swimming. Porto Matruh really felt like a home away from home. Thank you Hesham El Abd for your hospitality 🙏</p>
+        <div class="rev-google">
+          <svg width="14" height="14" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+          Google Maps
+        </div>
+      </div>
+
+      <!-- 5 - Mayssam M -->
+      <div class="rev-card fade-in">
+        <div class="rev-card-top">
+          <div class="rev-avatar" style="background:linear-gradient(135deg,#e67e22,#f39c12)">MM</div>
+          <div>
+            <div class="rev-name">Mayssam M</div>
+            <div class="rev-date">منذ ٨ أشهر</div>
+          </div>
+        </div>
+        <div class="rev-stars-sm">★★★★★</div>
+        <p class="rev-text">أجدع حد ممكن تقابلو بحياتك الاستاذ هشام العبد — راجل محترم جداً، واي حاجة تحتاجها توصلك دغري. مكان محترم ونظيف جداً. مفيش كلام يتقال غير شكراً من قلبي على المعاملة المحترمة ❤️</p>
+        <div class="rev-google">
+          <svg width="14" height="14" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+          Google Maps
+        </div>
+      </div>
+
+      <!-- 6 - Abou Ali -->
+      <div class="rev-card fade-in">
+        <div class="rev-card-top">
+          <div class="rev-avatar" style="background:linear-gradient(135deg,#2ecc71,#1a8a4a)">A</div>
+          <div>
+            <div class="rev-name">Abou Ali</div>
+            <div class="rev-date">منذ ٨ أشهر</div>
+          </div>
+        </div>
+        <div class="rev-stars-sm">★★★★★</div>
+        <p class="rev-text">أتوجه بجزيل الشكر لمسار هشام العبد من البداية وحتى نهاية التعامل: الأمانة والمصداقية، الاحترام وحسن الخلق، الحرص على راحتنا، الرد السريع والمتابعة المستمرة. 🌟 تقييم ٥ نجوم عن جدارة واستحقاق 🌟</p>
+        <div class="rev-google">
+          <svg width="14" height="14" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+          Google Maps
+        </div>
+      </div>
+
+      <!-- 7 - ahmed nada -->
+      <div class="rev-card fade-in">
+        <div class="rev-card-top">
+          <div class="rev-avatar" style="background:linear-gradient(135deg,#9b59b6,#6c3483)">AN</div>
+          <div>
+            <div class="rev-name">ahmed nada</div>
+            <div class="rev-date">منذ ٨ أشهر</div>
+          </div>
+        </div>
+        <div class="rev-stars-sm">★★★★★</div>
+        <p class="rev-text">استاذ هشام من الناس المحترمة جداً ومصداقية عالية جداً ومساعدة وبيتواصل معاك طول فترة الاقامة بصراحة محترم وزوق جداً. نصيحة اي حد يفكر يجى بورتو مطروح لازم يحجز معاه.</p>
+        <div class="rev-google">
+          <svg width="14" height="14" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+          Google Maps
+        </div>
+      </div>
+
+      <!-- 8 - YASSER ELHANAFY -->
+      <div class="rev-card fade-in">
+        <div class="rev-card-top">
+          <div class="rev-avatar" style="background:linear-gradient(135deg,#e74c3c,#c0392b)">Y</div>
+          <div>
+            <div class="rev-name">YASSER ELHANAFY</div>
+            <div class="rev-date">منذ ٩ أشهر</div>
+          </div>
+        </div>
+        <div class="rev-stars-sm">★★★★★</div>
+        <p class="rev-text">بعيداً عن تقييمي للشاليهات هتلاقي أحسن تعامل واحترام وتقدير للعميل. الأستاذ هشام من الشخصيات المحترمة اللي أنا اتعلمت معاهم. نفس الصور والفيديوهات اللي بيرسلها هتلاقيه على ارض الواقع. الله يعطيه الف عافية 🙏</p>
+        <div class="rev-google">
+          <svg width="14" height="14" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+          Google Maps
+        </div>
+      </div>
+
+      <!-- 9 - تامر حماس -->
+      <div class="rev-card fade-in">
+        <div class="rev-card-top">
+          <div class="rev-avatar" style="background:linear-gradient(135deg,#16a085,#1abc9c)">ت</div>
+          <div>
+            <div class="rev-name">تامر حماس</div>
+            <div class="rev-date">منذ ٨ أشهر</div>
+          </div>
+        </div>
+        <div class="rev-stars-sm">★★★★★</div>
+        <p class="rev-text">لو معاك أطفال وعايز تبسطهم يبقى مافيش غير بورتو مطروح مع أ.هشام العبد. وللمرة التانية على التوالى — أحب اقول لحضراتكم عايز تنبسط انت والاولاد يبقى مافيش غير أ.هشام العبد بورتو مطروح ❤️</p>
+        <div class="rev-google">
+          <svg width="14" height="14" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+          Google Maps
+        </div>
+      </div>
+
+    </div>
+
+    <div class="rev-cta fade-in">
+      <a href="https://maps.app.goo.gl/ippfqZ57HPPCYLfe7" target="_blank" rel="noopener">
+        <svg width="16" height="16" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+        شاهد كل التقييمات على Google Maps
+      </a>
+    </div>
+  </div>
+</section>
+
 <!-- ===== FAQ SECTION ===== -->
 <section class="section-pro" style="background:var(--navy)">
   <div class="section-inner">
@@ -2185,6 +2486,9 @@ linear-gradient(160deg,#0f2220 0%, #1a3533 35%, #2D5F5D 70%, #3d7a77 100%)}
         <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
         تابعنا على فيسبوك
       </a>
+      <button id="share-btn" onclick="shareWebsite()" style="background:rgba(178,223,219,0.12);border:1px solid rgba(178,223,219,0.25);color:rgba(255,255,255,0.75);padding:8px 16px;border-radius:999px;cursor:pointer;font-family:'Tajawal',sans-serif;font-size:14px;font-weight:700;transition:all 0.25s;display:flex;align-items:center;gap:6px;">
+        🔗 شارك الموقع
+      </button>
     </div>
   </div>
   <div class="footer-dev">developed by eldabb3 projects</div>
