@@ -1492,73 +1492,163 @@
     <div class="fade-in" style="text-align:center;">
       <div class="section-tag">✦ الأسعار</div>
       <h2 class="section-title">أسعار موسم صيف <span>٢٠٢٦</span></h2>
-      <p class="section-body" style="margin: 0 auto;">أسعار تنافسية لأجمل شاليهات في بورتو مطروح، الحجز المسبق متاح الآن</p>
+      <p class="section-body" style="margin: 0 auto;">أسعار تنافسية لأجمل شاليهات في بورتو مطروح — الحجز المسبق متاح الآن</p>
     </div>
 
-    <div class="pricing-grid">
+    <!-- Month tabs -->
+    <div style="display:flex;justify-content:center;gap:10px;margin:32px 0 40px;flex-wrap:wrap;">
+      <button onclick="showMonth('m6')" id="tab-m6" class="month-tab active-tab">شهر ٦</button>
+      <button onclick="showMonth('m78')" id="tab-m78" class="month-tab">شهر ٧ و٨</button>
+      <button onclick="showMonth('m9')" id="tab-m9" class="month-tab">شهر ٩</button>
+    </div>
+
+    <!-- شهر 6 -->
+    <div id="prices-m6" class="pricing-grid">
       <div class="price-card basic fade-in">
-        <div class="price-type">الوحدة الصغيرة</div>
-        <div class="price-name">ستوديو مميز</div>
-        <div class="price-amount">
-          <span class="price-num">٢٠٠٠</span>
-          <span class="price-currency">جنيه</span>
-        </div>
+        <div class="price-type">٤٨ متر — علوي</div>
+        <div class="price-name">شاليه علوي</div>
+        <div class="price-amount"><span class="price-num">١٦٠٠</span><span class="price-currency">جنيه</span></div>
         <div class="price-period">في الليلة الواحدة</div>
         <ul class="price-features">
-          <li>غرفة نوم واحدة</li>
-          <li>ريسبشن مريح</li>
-          <li>حمام وأمريكي كيتشن</li>
-          <li>يسع حتى ٤ أفراد</li>
-          <li>دخول حمامات السباحة</li>
+          <li>٤٨ متر مربع</li>
+          <li>دور علوي</li>
+          <li>مجهز بالكامل</li>
+          <li>خدمات القرية كاملة</li>
         </ul>
-        <a href="https://wa.me/201015753775" target="_blank" class="btn-secondary" style="display:block; text-align:center;">احجز الآن</a>
+        <a href="https://wa.me/201015753775" target="_blank" class="btn-secondary" style="display:block;text-align:center;">احجز الآن</a>
       </div>
-
+      <div class="price-card basic fade-in">
+        <div class="price-type">٤٨ متر — جاردن</div>
+        <div class="price-name">شاليه جاردن</div>
+        <div class="price-amount"><span class="price-num">١٨٠٠</span><span class="price-currency">جنيه</span></div>
+        <div class="price-period">في الليلة الواحدة</div>
+        <ul class="price-features">
+          <li>٤٨ متر مربع</li>
+          <li>جاردن خاص</li>
+          <li>مجهز بالكامل</li>
+          <li>خدمات القرية كاملة</li>
+        </ul>
+        <a href="https://wa.me/201015753775" target="_blank" class="btn-secondary" style="display:block;text-align:center;">احجز الآن</a>
+      </div>
       <div class="price-card featured fade-in">
         <div class="featured-badge">الأكثر طلباً</div>
-        <div class="price-type">الوحدة المتوسطة</div>
-        <div class="price-name">شاليه عائلي</div>
-        <div class="price-amount">
-          <span class="price-num">٢٨٠٠</span>
-          <span class="price-currency">جنيه</span>
-        </div>
+        <div class="price-type">٧٥ متر — علوي</div>
+        <div class="price-name">شاليه علوي كبير</div>
+        <div class="price-amount"><span class="price-num">٢٠٠٠</span><span class="price-currency">جنيه</span></div>
         <div class="price-period">في الليلة الواحدة</div>
         <ul class="price-features">
-          <li>غرفة نوم واسعة</li>
-          <li>ريسبشن كبير جداً</li>
-          <li>٢ حمام</li>
-          <li>مطبخ مجهز بالكامل</li>
-          <li>تكييف كامل</li>
-          <li>شاطئ خاص + حمامات سباحة</li>
-          <li>باص نقل مجاني للشاطئ</li>
+          <li>٧٥ متر مربع</li>
+          <li>دور علوي</li>
+          <li>مساحة أكبر</li>
+          <li>خدمات القرية كاملة</li>
         </ul>
-        <a href="https://wa.me/201015753775" target="_blank" class="btn-primary" style="display:block; text-align:center;">احجز الآن</a>
+        <a href="https://wa.me/201015753775" target="_blank" class="btn-primary" style="display:block;text-align:center;">احجز الآن</a>
       </div>
-
       <div class="price-card premium fade-in">
-        <div class="price-type">الوحدة الكبيرة</div>
-        <div class="price-name">شاليه فاخر</div>
-        <div class="price-amount">
-          <span class="price-num">٣٥٠٠</span>
-          <span class="price-currency">جنيه</span>
-        </div>
+        <div class="price-type">٧٥ متر — جاردن</div>
+        <div class="price-name">شاليه جاردن كبير</div>
+        <div class="price-amount"><span class="price-num">٢٥٠٠</span><span class="price-currency">جنيه</span></div>
         <div class="price-period">في الليلة الواحدة</div>
         <ul class="price-features">
-          <li>غرفة واسعة</li>
-          <li>مساحة معيشة واسعة</li>
-          <li>٢ حمام</li>
-          <li>مطبخ فاخر متكامل</li>
-          <li>حديقة أو تراس خاص</li>
-          <li>كل مميزات الشاليه العائلي</li>
-          <li>فرش فندقي فاخر</li>
+          <li>٧٥ متر مربع</li>
+          <li>جاردن خاص</li>
+          <li>مساحة أكبر</li>
+          <li>خدمات القرية كاملة</li>
         </ul>
-        <a href="https://wa.me/201015753775" target="_blank" class="btn-primary" style="display:block; text-align:center; background: linear-gradient(135deg,var(--gold),var(--gold-light));">احجز الآن</a>
+        <a href="https://wa.me/201015753775" target="_blank" class="btn-primary" style="display:block;text-align:center;background:linear-gradient(135deg,var(--gold),var(--gold-light));">احجز الآن</a>
+      </div>
+    </div>
+
+    <!-- شهر 7 و8 -->
+    <div id="prices-m78" class="pricing-grid" style="display:none;">
+      <div class="price-card basic fade-in">
+        <div class="price-type">٤٨ متر — علوي</div>
+        <div class="price-name">شاليه علوي</div>
+        <div class="price-amount"><span class="price-num">٢٥٠٠</span><span class="price-currency">جنيه</span></div>
+        <div class="price-period">في الليلة الواحدة</div>
+        <ul class="price-features">
+          <li>٤٨ متر مربع</li>
+          <li>دور علوي</li>
+          <li>مجهز بالكامل</li>
+          <li>خدمات القرية كاملة</li>
+        </ul>
+        <a href="https://wa.me/201015753775" target="_blank" class="btn-secondary" style="display:block;text-align:center;">احجز الآن</a>
+      </div>
+      <div class="price-card basic fade-in">
+        <div class="price-type">٤٨ متر — جاردن</div>
+        <div class="price-name">شاليه جاردن</div>
+        <div class="price-amount"><span class="price-num">٢٨٠٠</span><span class="price-currency">جنيه</span></div>
+        <div class="price-period">في الليلة الواحدة</div>
+        <ul class="price-features">
+          <li>٤٨ متر مربع</li>
+          <li>جاردن خاص</li>
+          <li>مجهز بالكامل</li>
+          <li>خدمات القرية كاملة</li>
+        </ul>
+        <a href="https://wa.me/201015753775" target="_blank" class="btn-secondary" style="display:block;text-align:center;">احجز الآن</a>
+      </div>
+      <div class="price-card featured fade-in">
+        <div class="featured-badge">الأكثر طلباً</div>
+        <div class="price-type">٧٥ متر — علوي</div>
+        <div class="price-name">شاليه علوي كبير</div>
+        <div class="price-amount"><span class="price-num">٣٥٠٠</span><span class="price-currency">جنيه</span></div>
+        <div class="price-period">في الليلة الواحدة</div>
+        <ul class="price-features">
+          <li>٧٥ متر مربع</li>
+          <li>دور علوي</li>
+          <li>مساحة أكبر</li>
+          <li>خدمات القرية كاملة</li>
+        </ul>
+        <a href="https://wa.me/201015753775" target="_blank" class="btn-primary" style="display:block;text-align:center;">احجز الآن</a>
+      </div>
+      <div class="price-card premium fade-in">
+        <div class="price-type">٧٥ متر — جاردن</div>
+        <div class="price-name">شاليه جاردن كبير</div>
+        <div class="price-amount"><span class="price-num">٤٠٠٠</span><span class="price-currency">جنيه</span></div>
+        <div class="price-period">في الليلة الواحدة</div>
+        <ul class="price-features">
+          <li>٧٥ متر مربع</li>
+          <li>جاردن خاص</li>
+          <li>مساحة أكبر</li>
+          <li>خدمات القرية كاملة</li>
+        </ul>
+        <a href="https://wa.me/201015753775" target="_blank" class="btn-primary" style="display:block;text-align:center;background:linear-gradient(135deg,var(--gold),var(--gold-light));">احجز الآن</a>
+      </div>
+    </div>
+
+    <!-- شهر 9 -->
+    <div id="prices-m9" class="pricing-grid" style="display:none;">
+      <div class="price-card basic fade-in">
+        <div class="price-type">٤٨ متر — علوي</div>
+        <div class="price-name">شاليه علوي</div>
+        <div class="price-amount"><span class="price-num">١٧٠٠</span><span class="price-currency">جنيه</span></div>
+        <div class="price-period">في الليلة الواحدة</div>
+        <ul class="price-features">
+          <li>٤٨ متر مربع</li>
+          <li>دور علوي</li>
+          <li>مجهز بالكامل</li>
+          <li>خدمات القرية كاملة</li>
+        </ul>
+        <a href="https://wa.me/201015753775" target="_blank" class="btn-secondary" style="display:block;text-align:center;">احجز الآن</a>
+      </div>
+      <div class="price-card basic fade-in">
+        <div class="price-type">٤٨ متر — جاردن</div>
+        <div class="price-name">شاليه جاردن</div>
+        <div class="price-amount"><span class="price-num">٢٠٠٠</span><span class="price-currency">جنيه</span></div>
+        <div class="price-period">في الليلة الواحدة</div>
+        <ul class="price-features">
+          <li>٤٨ متر مربع</li>
+          <li>جاردن خاص</li>
+          <li>مجهز بالكامل</li>
+          <li>خدمات القرية كاملة</li>
+        </ul>
+        <a href="https://wa.me/201015753775" target="_blank" class="btn-secondary" style="display:block;text-align:center;">احجز الآن</a>
       </div>
     </div>
 
     <div class="fade-in" style="text-align:center; margin-top:40px; color:rgba(255,255,255,0.4); font-size:14px; line-height:2;">
       * الأسعار للموسم الصيفي ٢٠٢٦ | الحجز المسبق ضروري في ذروة الموسم<br>
-      * سياسة إلغاء صارمة — يُنصح بالتواصل قبل الحجز للاستفسار
+      * يُنصح بالتواصل قبل الحجز للاستفسار عن التفاصيل
     </div>
   </div>
 </div>
@@ -1615,6 +1705,16 @@
   document.getElementById('lightbox').addEventListener('click', function(e) {
     if (e.target === this) closeLightbox();
   });
+
+  // Month price tabs
+  function showMonth(month) {
+    ['m6','m78','m9'].forEach(m => {
+      const grid = document.getElementById('prices-' + m);
+      const tab = document.getElementById('tab-' + m);
+      if (grid) grid.style.display = m === month ? 'grid' : 'none';
+      if (tab) tab.classList.toggle('active-tab', m === month);
+    });
+  }
 
   // Share website
   function shareWebsite() {
@@ -1896,19 +1996,29 @@ linear-gradient(160deg,#0f2220 0%, #1a3533 35%, #2D5F5D 70%, #3d7a77 100%)}
     </div>
     <div class="grid-pro">
       <div class="card-pro card-gold-touch fade-in">
-        <div class="card-tier">٢ غرفة</div>
+        <div class="card-tier">٢ غرفة — جاردن</div>
         <div class="card-title">شاليه عائلي</div>
-        <div class="card-text">مناسب لعائلة صغيرة، مطبخ مجهز، إطلالة مريحة، وسعر تنافسي.</div>
+        <div class="card-text">مناسب لعائلة صغيرة، مطبخ مجهز، جاردن خاص، وسعر تنافسي.</div>
         <ul class="card-features">
           <li>مطبخ مجهز بالكامل</li>
-          <li>إطلالة مريحة</li>
+          <li>جاردن خاص</li>
           <li>مناسب لـ +٧ أفراد</li>
         </ul>
+        <div style="margin-top:16px;padding-top:16px;border-top:1px solid rgba(255,255,255,0.1);">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;">
+            <span style="font-size:12px;color:rgba(255,255,255,0.5);">شهر ٦</span>
+            <span style="font-size:20px;font-weight:800;color:#b8934a;font-family:'Amiri',serif;">٣٥٠٠ <span style="font-size:13px;color:rgba(255,255,255,0.5);">جنيه/ليلة</span></span>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:center;">
+            <span style="font-size:12px;color:rgba(255,255,255,0.5);">شهر ٧ و٨</span>
+            <span style="font-size:20px;font-weight:800;color:#F1E4C0;font-family:'Amiri',serif;">٦٠٠٠ <span style="font-size:13px;color:rgba(255,255,255,0.5);">جنيه/ليلة</span></span>
+          </div>
+        </div>
       </div>
 
       <div class="card-pro card-featured card-gold-touch fade-in">
         <div class="card-badge">الأكثر طلباً</div>
-        <div class="card-tier" style="color:#B2DFDB">٣ غرف</div>
+        <div class="card-tier" style="color:#B2DFDB">٣ غرف — جاردن</div>
         <div class="card-title">شاليه فاخر</div>
         <div class="card-text">مناسب للعائلات الكبيرة، مساحة أوسع، وراحة أعلى وتجربة أكثر خصوصية.</div>
         <ul class="card-features">
@@ -1916,6 +2026,16 @@ linear-gradient(160deg,#0f2220 0%, #1a3533 35%, #2D5F5D 70%, #3d7a77 100%)}
           <li>مناسب لـ +٨ أفراد</li>
           <li>تجهيزات متكاملة</li>
         </ul>
+        <div style="margin-top:16px;padding-top:16px;border-top:1px solid rgba(255,255,255,0.1);">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;">
+            <span style="font-size:12px;color:rgba(255,255,255,0.5);">شهر ٦</span>
+            <span style="font-size:20px;font-weight:800;color:#b8934a;font-family:'Amiri',serif;">٥٠٠٠ <span style="font-size:13px;color:rgba(255,255,255,0.5);">جنيه/ليلة</span></span>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:center;">
+            <span style="font-size:12px;color:rgba(255,255,255,0.5);">شهر ٧ و٨</span>
+            <span style="font-size:20px;font-weight:800;color:#F1E4C0;font-family:'Amiri',serif;">٨٥٠٠ <span style="font-size:13px;color:rgba(255,255,255,0.5);">جنيه/ليلة</span></span>
+          </div>
+        </div>
       </div>
 
       <div class="card-pro card-vip fade-in">
@@ -1929,6 +2049,23 @@ linear-gradient(160deg,#0f2220 0%, #1a3533 35%, #2D5F5D 70%, #3d7a77 100%)}
           <li>مناسب لـ +١٠ أفراد</li>
         </ul>
       </div>
+
+      <div class="card-pro fade-in" style="border-color:rgba(178,223,219,0.3);background:linear-gradient(135deg,rgba(26,53,51,0.9),rgba(15,35,33,0.95));">
+        <div class="card-badge" style="background:linear-gradient(135deg,#B2DFDB,#4db6ac);color:#0d1f1d;">🔥 ليفل الوحش</div>
+        <div class="card-tier" style="color:#B2DFDB">٣ غرف — دور علوي</div>
+        <div class="card-title" style="color:#fff;">شاليه ليفل الوحش</div>
+        <div class="card-text">مش VIP وعدى مرحلة VIP بكتير — الشاليه ده ليفل تاني خالص. دور علوي بمساحة ومنظر ما إلهومش حل.</div>
+        <ul class="card-features">
+          <li>٣ غرف نوم — دور علوي</li>
+          <li>مساحة وإطلالة استثنائية</li>
+          <li>تشطيب على مستوى مختلف تماماً</li>
+          <li>مناسب لـ +٨ أفراد</li>
+        </ul>
+        <div style="margin-top:16px;padding-top:16px;border-top:1px solid rgba(178,223,219,0.15);">
+          <p style="font-size:13px;color:rgba(255,255,255,0.5);text-align:center;margin:0;">للسعر تواصل معنا مباشرةً</p>
+          <a href="https://wa.me/201015753775?text=عايز%20أعرف%20سعر%20شاليه%20الوحش%20٣%20غرف%20دور%20علوي" target="_blank" class="btn-primary" style="display:block;text-align:center;margin-top:12px;background:linear-gradient(135deg,#26a69a,#00897b);">استفسر الآن</a>
+        </div>
+      </div>
     </div>
 
     <div class="cta-contact fade-in">
@@ -1939,6 +2076,25 @@ linear-gradient(160deg,#0f2220 0%, #1a3533 35%, #2D5F5D 70%, #3d7a77 100%)}
 </section>
 
 <!-- ===== LOCATION SECTION ===== -->
+<style>
+.month-tab {
+  padding: 10px 22px;
+  border-radius: 999px;
+  border: 1px solid rgba(178,223,219,0.25);
+  background: rgba(255,255,255,0.05);
+  color: rgba(255,255,255,0.7);
+  font-weight: 800;
+  font-family: 'Tajawal', sans-serif;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all .25s;
+}
+.month-tab.active-tab {
+  background: linear-gradient(135deg,#b8934a,#d4a85a);
+  color: #1a1a1a;
+  border-color: transparent;
+}
+</style>
 <style>
 #location-sec {
   background: linear-gradient(180deg, #0d1f1d 0%, #1a3533 100%);
