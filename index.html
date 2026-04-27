@@ -1711,7 +1711,19 @@
     ['m6','m78','m9'].forEach(m => {
       const grid = document.getElementById('prices-' + m);
       const tab = document.getElementById('tab-' + m);
-      if (grid) grid.style.display = m === month ? 'grid' : 'none';
+      if (grid) {
+        if (m === month) {
+          grid.style.display = 'grid';
+          // trigger animation on each card
+          grid.querySelectorAll('.price-card').forEach(c => {
+            c.classList.remove('animate-in');
+            void c.offsetWidth; // reflow
+            c.classList.add('animate-in');
+          });
+        } else {
+          grid.style.display = 'none';
+        }
+      }
       if (tab) tab.classList.toggle('active-tab', m === month);
     });
   }
@@ -1746,6 +1758,22 @@
     });
   });
   document.querySelectorAll('.fade-in').forEach(el => el.classList.add('visible'));
+
+  // Animate pricing cards when scrolled into view
+  const pricingObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.querySelectorAll('.price-card').forEach(c => {
+          c.classList.remove('animate-in');
+          void c.offsetWidth;
+          c.classList.add('animate-in');
+        });
+        pricingObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15 });
+  const defaultGrid = document.getElementById('prices-m6');
+  if (defaultGrid) pricingObserver.observe(defaultGrid);
 
   // Scroll fade-in
   const observer = new IntersectionObserver((entries) => {
@@ -2094,6 +2122,21 @@ linear-gradient(160deg,#0f2220 0%, #1a3533 35%, #2D5F5D 70%, #3d7a77 100%)}
   color: #1a1a1a;
   border-color: transparent;
 }
+.pricing-grid .price-card:nth-child(1) { transition-delay: 0.05s; }
+.pricing-grid .price-card:nth-child(2) { transition-delay: 0.15s; }
+.pricing-grid .price-card:nth-child(3) { transition-delay: 0.25s; }
+.pricing-grid .price-card:nth-child(4) { transition-delay: 0.35s; }
+@keyframes cardPop {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.price-card.animate-in {
+  animation: cardPop 0.45s ease forwards;
+}
+.price-card.animate-in:nth-child(1) { animation-delay: 0.05s; }
+.price-card.animate-in:nth-child(2) { animation-delay: 0.15s; }
+.price-card.animate-in:nth-child(3) { animation-delay: 0.25s; }
+.price-card.animate-in:nth-child(4) { animation-delay: 0.35s; }
 </style>
 <style>
 #location-sec {
